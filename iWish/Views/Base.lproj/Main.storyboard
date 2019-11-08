@@ -25,12 +25,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="51"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qT4-R1-qtP">
-                                <rect key="frame" x="154" y="318" width="66" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XGZ-Nt-ZiS">
+                                <rect key="frame" x="137" y="529" width="84" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add Wish"/>
+                                <state key="normal" title="Create Wish"/>
                                 <connections>
-                                    <segue destination="UoX-hT-ZhB" kind="show" id="qxV-H7-DWk"/>
+                                    <segue destination="UoX-hT-ZhB" kind="show" id="3Kj-ut-jeU"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -73,14 +73,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P7j-Do-Isl">
-                                <rect key="frame" x="154" y="578" width="66" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add Wish"/>
-                                <connections>
-                                    <action selector="onActionAddWish:" destination="UoX-hT-ZhB" eventType="touchUpInside" id="v26-zG-sZb"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5gB-Ls-Vpn">
                                 <rect key="frame" x="33" y="318" width="308" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -100,14 +92,30 @@
                                     <action selector="chooseImage:" destination="UoX-hT-ZhB" eventType="touchUpInside" id="bRx-n5-Iyb"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="etd-dC-UkO">
+                                <rect key="frame" x="33" y="199" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="re4-QS-zd4">
+                                <rect key="frame" x="154" y="585" width="66" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add Wish"/>
+                                <connections>
+                                    <action selector="addWish:" destination="UoX-hT-ZhB" eventType="touchUpInside" id="mHi-vm-5Yg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="kzV-Mu-5Df"/>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="nUb-VE-squ" id="eqq-9m-KzL"/>
-                        <outlet property="test" destination="5gB-Ls-Vpn" id="LtI-Kv-5f2"/>
+                        <outlet property="test" destination="5gB-Ls-Vpn" id="GFy-Em-9bd"/>
                         <outlet property="wishDescription" destination="xgw-0X-R8d" id="Knm-Sf-LTV"/>
+                        <outlet property="wishPrice" destination="etd-dC-UkO" id="Jnw-Za-z5V"/>
                         <outlet property="wishTitle" destination="vBW-zz-ytH" id="FH1-2E-crY"/>
                     </connections>
                 </viewController>
