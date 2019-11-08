@@ -9,7 +9,10 @@
 import Foundation
 
 struct Wish {
+    
     var title: String!
-    var description: String!    
+    var description: String!
+    var price: String!
+    
     
 }
