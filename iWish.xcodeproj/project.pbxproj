@@ -43,6 +43,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		89213DB9237598A500C98415 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				89BFBBC623758E310098B5FA /* ProfileViewController.swift */,
+				8915BC2823758FCF0035035C /* LoginViewController.swift */,
+				8915BC2A237590190035035C /* HomeViewController.swift */,
+				8915BC2C237590780035035C /* MyWishesViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		89213DBA237598E700C98415 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				89A7F7612370AFF600041762 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		89213DBB237598EE00C98415 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		89A7F7512370AFF600041762 = {
 			isa = PBXGroup;
 			children = (
@@ -62,16 +88,14 @@
 		89A7F75C2370AFF600041762 /* iWish */ = {
 			isa = PBXGroup;
 			children = (
+				89213DBB237598EE00C98415 /* Models */,
+				89213DBA237598E700C98415 /* Views */,
+				89213DB9237598A500C98415 /* Controllers */,
 				89A7F75D2370AFF600041762 /* AppDelegate.swift */,
-				89A7F7612370AFF600041762 /* Main.storyboard */,
 				89A7F7672370AFF700041762 /* Assets.xcassets */,
 				89A7F7692370AFF700041762 /* LaunchScreen.storyboard */,
 				89A7F76C2370AFF800041762 /* Info.plist */,
 				89A7F7642370AFF600041762 /* iWish.xcdatamodeld */,
-				89BFBBC623758E310098B5FA /* ProfileViewController.swift */,
-				8915BC2823758FCF0035035C /* LoginViewController.swift */,
-				8915BC2A237590190035035C /* HomeViewController.swift */,
-				8915BC2C237590780035035C /* MyWishesViewController.swift */,
 			);
 			path = iWish;
 			sourceTree = "<group>";
