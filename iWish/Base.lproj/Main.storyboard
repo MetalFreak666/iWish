@@ -25,14 +25,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="51"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7B-Y6-cBF">
-                                <rect key="frame" x="154" y="281" width="66" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add Wish"/>
-                                <connections>
-                                    <segue destination="to5-TU-oSu" kind="show" id="kLt-Hy-zFf"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -103,11 +95,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WhK-VB-JME" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
-=======
-            <point key="canvasLocation" x="-204" y="152"/>
->>>>>>> 5cef3f5840819a21ba63fb92e6d4d494e180bcb0
         </scene>
         <!--Home-->
         <scene sceneID="lPZ-Cy-rZe">
@@ -135,7 +123,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="rRW-LT-0F1"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" selectedImage="Home" id="V4j-cR-hTN"/>
+                    <tabBarItem key="tabBarItem" title="Home" id="V4j-cR-hTN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3SZ-Nn-zBp" sceneMemberID="firstResponder"/>
             </objects>
@@ -186,66 +174,5 @@
             </objects>
             <point key="canvasLocation" x="1088.8" y="141.67916041979012"/>
         </scene>
-        <!--My Wishes-->
-        <scene sceneID="do0-Et-xGK">
-            <objects>
-                <viewController id="to5-TU-oSu" customClass="ViewController" customModule="iWish" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="AdI-iL-R5q">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Add Wish" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jzh-Lq-6kN">
-                                <rect key="frame" x="-103" y="62" width="581" height="92"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="58"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1U2-Ju-nI9">
-                                <rect key="frame" x="154" y="324" width="66" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add Wish"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNZ-li-fU4">
-                                <rect key="frame" x="170" y="424" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Back"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="FfV-Ma-WxT"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ENW-Ni-h3k">
-                                <rect key="frame" x="76" y="170" width="226" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ANu-5H-bCx">
-                                <rect key="frame" x="76" y="233" width="226" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="uEt-m9-vtK"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="My Wishes" id="wR6-hd-13H"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BGR-u8-rLX" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3024.8000000000002" y="133.5832083958021"/>
-        </scene>
     </scenes>
-<<<<<<< HEAD
-    <resources>
-        <image name="Home" width="512" height="512"/>
-    </resources>
-=======
-    <inferredMetricsTieBreakers>
-        <segue reference="FfV-Ma-WxT"/>
-    </inferredMetricsTieBreakers>
->>>>>>> 5cef3f5840819a21ba63fb92e6d4d494e180bcb0
 </document>
