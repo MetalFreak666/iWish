@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,11 +18,13 @@
 		89A7F7682370AFF700041762 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89A7F7672370AFF700041762 /* Assets.xcassets */; };
 		89A7F76B2370AFF700041762 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89A7F7692370AFF700041762 /* LaunchScreen.storyboard */; };
 		89BFBBC723758E310098B5FA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BFBBC623758E310098B5FA /* ProfileViewController.swift */; };
+		89C9125E2375A69300E02CEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89C9125D2375A69200E02CEE /* GoogleService-Info.plist */; };
+		EAE9703130169A9800962AD0 /* Pods_iWish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8DB4C6A47063576BEDE5E1D /* Pods_iWish.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		02ED0A7123759C07002284CD /* AddWishController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWishController.swift; sourceTree = "<group>"; };
-		02ED0A7323759C38002284CD /* Wish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wish.swift; sourceTree = "<group>"; };
+		067F58146BBEFC37350E682B /* Pods-iWish.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iWish.release.xcconfig"; path = "Target Support Files/Pods-iWish/Pods-iWish.release.xcconfig"; sourceTree = "<group>"; };
+		15EC88E6CCF552E861E5B7E3 /* Pods-iWish.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iWish.debug.xcconfig"; path = "Target Support Files/Pods-iWish/Pods-iWish.debug.xcconfig"; sourceTree = "<group>"; };
 		8915BC2823758FCF0035035C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8915BC2A237590190035035C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8915BC2C237590780035035C /* MyWishesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWishesViewController.swift; sourceTree = "<group>"; };
@@ -34,6 +36,8 @@
 		89A7F76A2370AFF700041762 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89A7F76C2370AFF800041762 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89BFBBC623758E310098B5FA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		89C9125D2375A69200E02CEE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		E8DB4C6A47063576BEDE5E1D /* Pods_iWish.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iWish.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,12 +45,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAE9703130169A9800962AD0 /* Pods_iWish.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3DF780EE68822761F5054819 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E8DB4C6A47063576BEDE5E1D /* Pods_iWish.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		51159A126913BD3F71903B79 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				15EC88E6CCF552E861E5B7E3 /* Pods-iWish.debug.xcconfig */,
+				067F58146BBEFC37350E682B /* Pods-iWish.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		89213DB9237598A500C98415 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +102,8 @@
 			children = (
 				89A7F75C2370AFF600041762 /* iWish */,
 				89A7F75B2370AFF600041762 /* Products */,
+				51159A126913BD3F71903B79 /* Pods */,
+				3DF780EE68822761F5054819 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,6 +118,7 @@
 		89A7F75C2370AFF600041762 /* iWish */ = {
 			isa = PBXGroup;
 			children = (
+				89C9125D2375A69200E02CEE /* GoogleService-Info.plist */,
 				89213DBB237598EE00C98415 /* Models */,
 				89213DBA237598E700C98415 /* Views */,
 				89213DB9237598A500C98415 /* Controllers */,
@@ -113,9 +138,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 89A7F76F2370AFF800041762 /* Build configuration list for PBXNativeTarget "iWish" */;
 			buildPhases = (
+				9C24210DDEDB3183E2D699B2 /* [CP] Check Pods Manifest.lock */,
 				89A7F7562370AFF600041762 /* Sources */,
 				89A7F7572370AFF600041762 /* Frameworks */,
 				89A7F7582370AFF600041762 /* Resources */,
+				CE754A093174A71CBE30A2B6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -165,12 +192,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				89A7F76B2370AFF700041762 /* LaunchScreen.storyboard in Resources */,
+				89C9125E2375A69300E02CEE /* GoogleService-Info.plist in Resources */,
 				89A7F7682370AFF700041762 /* Assets.xcassets in Resources */,
 				89A7F7632370AFF600041762 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9C24210DDEDB3183E2D699B2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iWish-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE754A093174A71CBE30A2B6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iWish/Pods-iWish-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iWish/Pods-iWish-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iWish/Pods-iWish-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		89A7F7562370AFF600041762 /* Sources */ = {
@@ -328,6 +398,7 @@
 		};
 		89A7F7702370AFF800041762 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15EC88E6CCF552E861E5B7E3 /* Pods-iWish.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -348,6 +419,7 @@
 		};
 		89A7F7712370AFF800041762 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 067F58146BBEFC37350E682B /* Pods-iWish.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
