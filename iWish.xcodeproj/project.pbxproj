@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< HEAD
 		8915BC2923758FCF0035035C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8915BC2823758FCF0035035C /* LoginViewController.swift */; };
 		8915BC2B237590190035035C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8915BC2A237590190035035C /* HomeViewController.swift */; };
 		8915BC2D237590780035035C /* MyWishesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8915BC2C237590780035035C /* MyWishesViewController.swift */; };
+=======
+		02137CA6237428CB00459A9F /* MyWishesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02137CA5237428CB00459A9F /* MyWishesController.swift */; };
+		02137CA82374296900459A9F /* AddWish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02137CA72374296900459A9F /* AddWish.swift */; };
+>>>>>>> 5cef3f5840819a21ba63fb92e6d4d494e180bcb0
 		89A7F75E2370AFF600041762 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A7F75D2370AFF600041762 /* AppDelegate.swift */; };
 		89A7F7632370AFF600041762 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89A7F7612370AFF600041762 /* Main.storyboard */; };
 		89A7F7662370AFF600041762 /* iWish.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 89A7F7642370AFF600041762 /* iWish.xcdatamodeld */; };
@@ -19,9 +24,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+<<<<<<< HEAD
 		8915BC2823758FCF0035035C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8915BC2A237590190035035C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8915BC2C237590780035035C /* MyWishesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWishesViewController.swift; sourceTree = "<group>"; };
+=======
+		02137CA5237428CB00459A9F /* MyWishesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWishesController.swift; sourceTree = "<group>"; };
+		02137CA72374296900459A9F /* AddWish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWish.swift; sourceTree = "<group>"; };
+>>>>>>> 5cef3f5840819a21ba63fb92e6d4d494e180bcb0
 		89A7F75A2370AFF600041762 /* iWish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iWish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89A7F75D2370AFF600041762 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89A7F7622370AFF600041762 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,10 +78,15 @@
 				89A7F7692370AFF700041762 /* LaunchScreen.storyboard */,
 				89A7F76C2370AFF800041762 /* Info.plist */,
 				89A7F7642370AFF600041762 /* iWish.xcdatamodeld */,
+<<<<<<< HEAD
 				89BFBBC623758E310098B5FA /* ProfileViewController.swift */,
 				8915BC2823758FCF0035035C /* LoginViewController.swift */,
 				8915BC2A237590190035035C /* HomeViewController.swift */,
 				8915BC2C237590780035035C /* MyWishesViewController.swift */,
+=======
+				02137CA5237428CB00459A9F /* MyWishesController.swift */,
+				02137CA72374296900459A9F /* AddWish.swift */,
+>>>>>>> 5cef3f5840819a21ba63fb92e6d4d494e180bcb0
 			);
 			path = iWish;
 			sourceTree = "<group>";
@@ -147,12 +162,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				8915BC2B237590190035035C /* HomeViewController.swift in Sources */,
 				8915BC2923758FCF0035035C /* LoginViewController.swift in Sources */,
+=======
+				02137CA6237428CB00459A9F /* MyWishesController.swift in Sources */,
+				89A7F7602370AFF600041762 /* ViewController.swift in Sources */,
+>>>>>>> 5cef3f5840819a21ba63fb92e6d4d494e180bcb0
 				89A7F7662370AFF600041762 /* iWish.xcdatamodeld in Sources */,
 				8915BC2D237590780035035C /* MyWishesViewController.swift in Sources */,
 				89BFBBC723758E310098B5FA /* ProfileViewController.swift in Sources */,
 				89A7F75E2370AFF600041762 /* AppDelegate.swift in Sources */,
+				02137CA82374296900459A9F /* AddWish.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
