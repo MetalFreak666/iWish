@@ -7,12 +7,21 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Welcome to your profile!");
+
+        
+        var ref: DatabaseReference!
+        
+        ref = Database.database().reference()
+        
+        ref.child("users").setValue(["username": "Jebisan"])
+
     }
     
     
