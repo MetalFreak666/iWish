@@ -43,10 +43,10 @@
             </objects>
             <point key="canvasLocation" x="2028" y="133.5832083958021"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Wish Controller-->
         <scene sceneID="qDl-i1-4ZD">
             <objects>
-                <viewController id="UoX-hT-ZhB" sceneMemberID="viewController">
+                <viewController id="UoX-hT-ZhB" customClass="AddWishController" customModule="iWish" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ROa-R0-KOL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -77,11 +77,26 @@
                                 <rect key="frame" x="154" y="578" width="66" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add Wish"/>
+                                <connections>
+                                    <action selector="onActionAddWish:" destination="UoX-hT-ZhB" eventType="touchUpInside" id="v26-zG-sZb"/>
+                                </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5gB-Ls-Vpn">
+                                <rect key="frame" x="33" y="318" width="308" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="kzV-Mu-5Df"/>
                     </view>
+                    <connections>
+                        <outlet property="test" destination="5gB-Ls-Vpn" id="LtI-Kv-5f2"/>
+                        <outlet property="wishDescription" destination="xgw-0X-R8d" id="Knm-Sf-LTV"/>
+                        <outlet property="wishTitle" destination="vBW-zz-ytH" id="FH1-2E-crY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Qz-Vv-Sdv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
