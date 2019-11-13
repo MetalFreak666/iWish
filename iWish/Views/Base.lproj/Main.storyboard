@@ -137,6 +137,9 @@
                                 <state key="normal" title="Log in with Google">
                                     <color key="titleColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginWithGoogle:" destination="zgf-oI-noe" eventType="touchUpInside" id="oEr-5J-3VA"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1r-Ep-DLG">
                                 <rect key="frame" x="115" y="533" width="145" height="30"/>
@@ -145,6 +148,8 @@
                                     <color key="titleColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="facebookLoginButtonHandler:" destination="zgf-oI-noe" eventType="touchUpInside" id="7Hh-E3-vd7"/>
+                                    <action selector="loginWithReadPermissions:" destination="zgf-oI-noe" eventType="touchUpInside" id="7eK-Pa-E7h"/>
                                     <segue destination="NTQ-P5-r29" kind="show" id="M9M-Su-JPO"/>
                                 </connections>
                             </button>
@@ -176,6 +181,16 @@
                                 <color key="textColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D8L-CR-eaz">
+                                <rect key="frame" x="115" y="533" width="145" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log in with Facebook">
+                                    <color key="titleColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginWithFacebook:" destination="zgf-oI-noe" eventType="touchUpInside" id="Itn-gd-6Xh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="mn9-wb-pJ7"/>
@@ -188,7 +203,7 @@
         <!--Home-->
         <scene sceneID="lPZ-Cy-rZe">
             <objects>
-                <viewController id="GEi-RF-qb5" customClass="HomeViewController" customModule="iWish" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GEi-RF-qb5" customClass="HomeViewController" customModule="iWish" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ED8-9k-Jb3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -245,7 +260,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="BEU-an-4la">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="NTQ-P5-r29" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NTQ-P5-r29" customClass="TabBarController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9oO-dp-q9F">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -264,6 +279,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="EDW-ZH-K5F"/>
+        <segue reference="TJi-9A-km2"/>
     </inferredMetricsTieBreakers>
 </document>
