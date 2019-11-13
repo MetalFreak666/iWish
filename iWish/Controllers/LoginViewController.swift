@@ -16,6 +16,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     
@@ -56,7 +57,7 @@ class LoginViewController: UIViewController {
     @IBAction private func loginWithReadPermissions() {
         let loginManager = LoginManager()
         loginManager.logIn(
-            permissions: [.publicProfile, .userFriends],
+            permissions: [.publicProfile],
             viewController: self
         ) { result in
             self.loginManagerDidComplete(result)
