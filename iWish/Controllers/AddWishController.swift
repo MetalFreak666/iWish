@@ -19,22 +19,21 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
     @IBOutlet weak var test: UITextField!
     @IBOutlet weak var wishPrice: UITextField!
     
-    @IBAction func addWish(_ sender: Any) {
-        
+    
+    @IBAction func addWish(_ sender: UIBarButtonItem) {
+        print("Wish added!")
         if let input = wishTitle.text, input.isEmpty {
             test.text = "Title cannot be empty"
         } else if let input = wishPrice.text, input.isEmpty {
             test.text = "Price cannot be empty"
-        //Proceed from her
+            //Proceed from her
         } else {
             wish = Wish(title: wishTitle.text, description: wishDescription.text, price: wishPrice.text)
             test.text = nil
             //Test
             //print(wish!)
         }
-        
     }
-    
     
   
     

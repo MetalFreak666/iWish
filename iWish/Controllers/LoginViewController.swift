@@ -25,7 +25,10 @@ class LoginViewController: UIViewController {
         self.present(viewController, animated: false, completion: nil)
     }
     
-
+    @IBAction func loginWithGoogle(_ sender: UIButton) {
+        redirectToTabBar()
+    }
+    
     @IBAction func loginWithFacebook(_ sender: UIButton) {
         self.loginWithReadPermissions()
         
