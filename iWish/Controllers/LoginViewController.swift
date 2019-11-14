@@ -5,18 +5,26 @@
 //  Created by Jebisan H. Nadarajah on 04/11/2019.
 //  Copyright © 2019 SDU. All rights reserved.
 //
-
 import UIKit
 import FacebookLogin
 import FacebookCore
 
 
+
 class LoginViewController: UIViewController {
-      
+
+    var fbId : String = "INITIAL"
+    var fbEmail : String = "INITIAL"
+    var fbName : String = "INITIAL"
+    var fbPickUrl : String = "INITIAL"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    func getURL () -> String {
+        return fbPickUrl
     }
     
     
@@ -52,9 +60,14 @@ class LoginViewController: UIViewController {
             )
             
         case .success(let grantedPermissions, _, _):
-            redirectToTabBar()
-            
+
+
+            print("These are your permissions:")
+            print(grantedPermissions)
+            self.redirectToTabBar()
+
         }
+        
     }
     
     @IBAction private func loginWithReadPermissions() {
@@ -80,3 +93,5 @@ class LoginViewController: UIViewController {
     }
     
 }
+
+

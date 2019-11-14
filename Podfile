@@ -8,10 +8,12 @@ target 'iWish' do
   # Pods for iWish
   pod 'Firebase/Database'
   
-  pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
-  pod 'FBSDKShareKit'
+
+  
+  pod 'FacebookCore'
   pod 'FacebookLogin'
+  pod 'Firebase/Auth'
 
 
 
