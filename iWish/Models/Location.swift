@@ -6,13 +6,22 @@
 //  Copyright © 2019 SDU. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-struct Location {
+class Location {
     
-    let latitude: Double
-    let longitude: Double
-    let date: Date
-    let dateString: String
-    let description: String
+    var latitude: Double
+    var longitude: Double
+    var date: Date
+    var dateString: String
+    var description: String
+    
+    init(latitude: Double, longitude: Double, date: Date, dateString: String, description: String) {
+        self.latitude = latitude
+        self.longitude = longitude
+        self.date = date
+        self.dateString = dateString
+        self.description = description
+    }
+    
 }
