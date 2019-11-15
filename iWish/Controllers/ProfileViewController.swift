@@ -25,7 +25,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Welcome to your profile!");
-        
+        setUserData()
         
 
 
@@ -33,12 +33,10 @@ class ProfileViewController: UIViewController {
         ref = Database.database().reference()
         ref.child("users").setValue(["username": "Jebisan"])
         */
-    
-        getProfileImage();
         
     }
     
-    func getProfileImage (){
+    func setUserData (){
         if AccessToken.current?.tokenString != nil {
             GraphRequest(graphPath: "me", parameters:["fields": "id, name, first_name, last_name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
                 if (error == nil){

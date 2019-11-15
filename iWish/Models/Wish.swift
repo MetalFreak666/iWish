@@ -14,5 +14,4 @@ struct Wish {
     var description: String!
     var price: String!
     
-    
 }

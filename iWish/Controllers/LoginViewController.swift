@@ -15,18 +15,16 @@ class LoginViewController: UIViewController {
 
     var fbId : String = "INITIAL"
     var fbEmail : String = "INITIAL"
-    var fbName : String = "INITIAL"
+    var fbFirstName : String = "INITIAL"
     var fbPickUrl : String = "INITIAL"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     func getURL () -> String {
         return fbPickUrl
     }
-    
     
     func redirectToTabBar () {
         let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarController") as UIViewController
@@ -64,6 +62,9 @@ class LoginViewController: UIViewController {
 
             print("These are your permissions:")
             print(grantedPermissions)
+            
+
+            
             self.redirectToTabBar()
 
         }
