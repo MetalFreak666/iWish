@@ -19,11 +19,12 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
     @IBOutlet weak var test: UITextField!
     @IBOutlet weak var wishPrice: UITextField!
     
+    @IBOutlet weak var titleStar: UILabel!
     
     @IBAction func addWish(_ sender: UIBarButtonItem) {
         print("Wish added!")
         if let input = wishTitle.text, input.isEmpty {
-            test.text = "Title cannot be empty"
+            self.titleStar.isHidden = false
         } else if let input = wishPrice.text, input.isEmpty {
             test.text = "Price cannot be empty"
             //Proceed from her
@@ -32,6 +33,8 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
             test.text = nil
             //Test
             //print(wish!)
+            self.titleStar.isHidden = true
+
         }
     }
     
@@ -84,6 +87,7 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Welcome to the Add Wish Screen!");
+        self.titleStar.isHidden = true
         
     }
 }

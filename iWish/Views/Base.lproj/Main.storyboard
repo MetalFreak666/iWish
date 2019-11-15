@@ -89,6 +89,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Dj-8n-JCJ">
+                                <rect key="frame" x="349" y="126" width="8" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="kzV-Mu-5Df"/>
@@ -103,6 +110,7 @@
                     <connections>
                         <outlet property="imageView" destination="nUb-VE-squ" id="eqq-9m-KzL"/>
                         <outlet property="test" destination="5gB-Ls-Vpn" id="GFy-Em-9bd"/>
+                        <outlet property="titleStar" destination="2Dj-8n-JCJ" id="B3p-DY-XHx"/>
                         <outlet property="wishDescription" destination="xgw-0X-R8d" id="Knm-Sf-LTV"/>
                         <outlet property="wishPrice" destination="etd-dC-UkO" id="Jnw-Za-z5V"/>
                         <outlet property="wishTitle" destination="vBW-zz-ytH" id="FH1-2E-crY"/>
