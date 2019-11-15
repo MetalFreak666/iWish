@@ -6,12 +6,21 @@
 //  Copyright © 2019 SDU. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-struct Wish {
+class Wish: NSObject {
     
-    var title: String!
-    var description: String!
-    var price: String!
+    var title: String
+    var wishDescription: String
+    var price: Int
+    //Used later
+    //var wishPhoto: UIImage?
+    
+    init(title: String, wishDescription: String, price: Int) {
+        self.title = title
+        self.wishDescription = wishDescription
+        self.price = price
+        //self.wishPhot = wishPhoto
+    }
     
 }

@@ -10,8 +10,6 @@ import UIKit
 
 class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    private var wish: Wish?
-    
     //TextFields title and description
     @IBOutlet weak var wishTitle: UITextField!
     @IBOutlet weak var wishDescription: UITextField!
@@ -23,16 +21,15 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
     
     @IBAction func addWish(_ sender: UIBarButtonItem) {
         print("Wish added!")
+        
         if let input = wishTitle.text, input.isEmpty {
             self.titleStar.isHidden = false
         } else if let input = wishPrice.text, input.isEmpty {
             test.text = "Price cannot be empty"
             //Proceed from her
         } else {
-            wish = Wish(title: wishTitle.text, description: wishDescription.text, price: wishPrice.text)
-            test.text = nil
-            //Test
-            //print(wish!)
+            //wish = Wish(title: wishTitle.text, description: wishDescription.text, price: wishPrice.text)
+          
             self.titleStar.isHidden = true
 
         }
