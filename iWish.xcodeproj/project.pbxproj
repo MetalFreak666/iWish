@@ -12,6 +12,7 @@
 		02ED0A762375A9F0002284CD /* AddWishController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ED0A752375A9EF002284CD /* AddWishController.swift */; };
 		02ED0A782375AA03002284CD /* Wish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ED0A772375AA03002284CD /* Wish.swift */; };
 		02ED0A7A2375B827002284CD /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ED0A792375B827002284CD /* Location.swift */; };
+		5F57956E2385C87F00A5CCD5 /* WishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F57956D2385C87F00A5CCD5 /* WishTableViewCell.swift */; };
 		5F8B0AAD23856890007B7220 /* WishManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8B0AAC23856890007B7220 /* WishManager.swift */; };
 		8915BC2923758FCF0035035C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8915BC2823758FCF0035035C /* LoginViewController.swift */; };
 		8915BC2B237590190035035C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8915BC2A237590190035035C /* HomeViewController.swift */; };
@@ -32,6 +33,7 @@
 		02ED0A792375B827002284CD /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		067F58146BBEFC37350E682B /* Pods-iWish.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iWish.release.xcconfig"; path = "Target Support Files/Pods-iWish/Pods-iWish.release.xcconfig"; sourceTree = "<group>"; };
 		15EC88E6CCF552E861E5B7E3 /* Pods-iWish.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iWish.debug.xcconfig"; path = "Target Support Files/Pods-iWish/Pods-iWish.debug.xcconfig"; sourceTree = "<group>"; };
+		5F57956D2385C87F00A5CCD5 /* WishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishTableViewCell.swift; sourceTree = "<group>"; };
 		5F8B0AAC23856890007B7220 /* WishManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishManager.swift; sourceTree = "<group>"; };
 		8915BC2823758FCF0035035C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8915BC2A237590190035035C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				8915BC2A237590190035035C /* HomeViewController.swift */,
 				8915BC2C237590780035035C /* MyWishesViewController.swift */,
 				02ED0A752375A9EF002284CD /* AddWishController.swift */,
+				5F57956D2385C87F00A5CCD5 /* WishTableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				89A7F7662370AFF600041762 /* iWish.xcdatamodeld in Sources */,
 				8915BC2D237590780035035C /* MyWishesViewController.swift in Sources */,
 				02ED0A762375A9F0002284CD /* AddWishController.swift in Sources */,
+				5F57956E2385C87F00A5CCD5 /* WishTableViewCell.swift in Sources */,
 				89BFBBC723758E310098B5FA /* ProfileViewController.swift in Sources */,
 				89A7F75E2370AFF600041762 /* AppDelegate.swift in Sources */,
 			);
