@@ -10,27 +10,55 @@ import UIKit
 
 class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    private var wishManager: WishManager!
+    private var wishes: [Wish]!
+    
     //TextFields title and description
     @IBOutlet weak var wishTitle: UITextField!
     @IBOutlet weak var wishDescription: UITextField!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var test: UITextField!
     @IBOutlet weak var wishPrice: UITextField!
     
     @IBOutlet weak var titleStar: UILabel!
+    @IBOutlet weak var priceStar: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print("Welcome to the Add Wish Screen!");
+        //Init of WishManager class with some test data
+        wishManager = WishManager()
+        wishManager.createWish()
+        wishes = wishManager.myWishes
+        
+        //Stars for user input check
+        self.titleStar.isHidden = true
+        self.priceStar.isHidden = true
+    }
     
     @IBAction func addWish(_ sender: UIBarButtonItem) {
+        
         print("Wish added!")
         
         if let input = wishTitle.text, input.isEmpty {
             self.titleStar.isHidden = false
         } else if let input = wishPrice.text, input.isEmpty {
-            test.text = "Price cannot be empty"
+            self.priceStar.isHidden = false
             //Proceed from her
         } else {
-            //wish = Wish(title: wishTitle.text, description: wishDescription.text, price: wishPrice.text)
-          
+            //Converting values from inputText
+            let title: String = wishTitle.text!
+            let description: String = wishDescription.text!
+            let price = Int(wishPrice.text!)!
+            
+            wishes.append(Wish(title: title, wishDescription: description, price: price))
+            
+            //test
+            for element in wishes {
+                print(element)
+            }
+            
             self.titleStar.isHidden = true
+            self.priceStar.isHidden = true
 
         }
     }
@@ -81,10 +109,5 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
 
     
        
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        print("Welcome to the Add Wish Screen!");
-        self.titleStar.isHidden = true
-        
-    }
+    
 }
