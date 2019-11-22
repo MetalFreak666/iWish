@@ -16,6 +16,8 @@ class WishManager {
     func createWish() {
         //test
         myWishes.append(Wish(title: "PS4", wishDescription: "I want this", price: 2000))
+        myWishes.append(Wish(title: "Samsung 8", wishDescription: "I wannt this for my birthday", price: 6000))
+        
         
     }
 }
