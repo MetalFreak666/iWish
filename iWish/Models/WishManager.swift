@@ -22,11 +22,16 @@ class WishManager {
             print(element)
         }
         
+        myWishesDidChange()
     }
     
     func createWish() {
-        //test
+        //test items
         myWishes.append(Wish(title: "PS4", wishDescription: "I want this", price: 2000))
         myWishes.append(Wish(title: "Samsung 8", wishDescription: "I wannt this for my birthday", price: 6000))
+    }
+    
+    func myWishesDidChange() {
+        
     }
 }
