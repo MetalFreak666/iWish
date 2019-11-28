@@ -27,7 +27,6 @@ class MyWishesViewController: UIViewController {
         
         print("Welcome to the My Wishes screen!");
     }
-   
 }
 
 extension MyWishesViewController: UITableViewDataSource, UITableViewDelegate {

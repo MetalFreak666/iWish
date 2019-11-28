@@ -50,13 +50,10 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
             let description: String = wishDescription.text!
             let price = Int(wishPrice.text!)!
             
-            wishes.append(Wish(title: title, wishDescription: description, price: price))
+            wishManager.addWish(wish_title: title, wish_desc: description, wish_price: price)
             
-            //test
-            for element in wishes {
-                print(element)
-            }
-            
+            //wishes.append(Wish(title: title, wishDescription: description, price: price))
+          
             self.titleStar.isHidden = true
             self.priceStar.isHidden = true
 
