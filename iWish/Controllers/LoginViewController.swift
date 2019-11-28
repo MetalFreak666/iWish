@@ -20,11 +20,11 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let loginButton = FBLoginButton(permissions: [ .publicProfile, .email ])
-        loginButton.center = view.center
         
-        view.addSubview(loginButton)
 
+    }
+    @IBAction func facebookLoginHandler(_ sender: UIButton) {
+        loginWithReadPermissions()
     }
     
     func redirectToTabBar () {
@@ -36,11 +36,6 @@ class LoginViewController: UIViewController {
         redirectToTabBar()
     }
     
-    @IBAction func loginWithFacebook(_ sender: UIButton) {
-       // self.loginWithReadPermissions()
-        
-    }
-    /*
     func loginManagerDidComplete(_ result: LoginResult) {
         let alertController: UIAlertController
         switch result {
@@ -59,19 +54,38 @@ class LoginViewController: UIViewController {
             )
             
         case .success(let grantedPermissions, _, _):
-
-
-            print("These are your permissions:")
-            print(grantedPermissions)
-            
-
-            
-            self.redirectToTabBar()
-
+            alertController = UIAlertController(
+                title: "Login Success",
+                message: "Login succeeded with granted permissions: \(grantedPermissions)",
+                preferredStyle: .alert
+            )
+            redirectToTabBar()
         }
-        
+        self.present(alertController, animated: true, completion: nil)
     }
-    */
+    
+    @IBAction private func loginWithReadPermissions() {
+        let loginManager = LoginManager()
+        loginManager.logIn(
+            permissions: [.publicProfile, .email],
+            viewController: self
+        ) { result in
+            self.loginManagerDidComplete(result)
+        }
+    }
+    
+    @IBAction private func logOut() {
+        let loginManager = LoginManager()
+        loginManager.logOut()
+        
+        let alertController = UIAlertController(
+            title: "Logout",
+            message: "Logged out.",
+            preferredStyle: .alert
+        )
+        present(alertController, animated: true, completion: nil)
+    }
+    
 }
 
 
