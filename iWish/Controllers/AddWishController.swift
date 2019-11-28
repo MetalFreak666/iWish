@@ -7,11 +7,18 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
 class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     private var wishManager: WishManager!
     private var wishes: [Wish]!
+    
+    //Defining region for location
+    let locationManager = CLLocationManager()
+    let regionLatMeters: Double = 2000
+    let regionLongMeter: Double = 1500
     
     //TextFields title and description
     @IBOutlet weak var wishTitle: UITextField!
@@ -22,9 +29,13 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
     @IBOutlet weak var titleStar: UILabel!
     @IBOutlet weak var priceStar: UILabel!
     
+    @IBOutlet weak var locationView: MKMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkIfLocationServiceIsAvailable()
         print("Welcome to the Add Wish Screen!");
+        
         //Init of WishManager class with some test data
         wishManager = WishManager()
         wishManager.createWish()
@@ -103,8 +114,68 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
+    
+    //Checking if location service is enabled on user device
+    func checkIfLocationServiceIsAvailable() {
+        if CLLocationManager.locationServicesEnabled() {
+            setupOfLocationManager()
+            checkAuthorization()
+            locationManager.startUpdatingLocation()
+        } else {
+            let alert = UIAlertController(title: "Location service is not available", message: "Please check if your location service is turned on", preferredStyle: .alert)
+            
+            //alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+        }
+    }
+    
+    func centerViewOnUser() {
+        if let location = locationManager.location?.coordinate {
+            let region = MKCoordinateRegion.init(center: location, latitudinalMeters: regionLatMeters, longitudinalMeters: regionLongMeter)
+            locationView.setRegion(region, animated: true)
+        }
+    }
+    
+    func setupOfLocationManager() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    }
+    
+    func checkAuthorization() {
+        switch CLLocationManager.authorizationStatus() {
+        case .authorizedWhenInUse:
+            locationView.showsUserLocation = true
+            centerViewOnUser()
+            break
+        case .denied:
+            //Implement alert showing alert that instructing to turn permision
+            break
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+            break
+        case .restricted:
+            //alert
+            break
+        case .authorizedAlways:
+            break
+        }
+    }
+    
+}
 
+extension AddWishController: CLLocationManagerDelegate {
     
-       
+    func locationManager(_ manager: CLLocationManager, didUpdateLocation locations: [CLLocation]) {
+        guard let location = locations.last else
+        {
+            return
+        }
+        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        let region = MKCoordinateRegion.init(center: center, latitudinalMeters: regionLatMeters, longitudinalMeters: regionLongMeter)
+        locationView.setRegion(region, animated: true)
+    }
     
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        checkAuthorization()
+    }
 }
