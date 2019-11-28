@@ -25,10 +25,6 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Welcome to the Add Wish Screen!");
-        //Init of WishManager class with some test data
-        wishManager = WishManager()
-        wishManager.createWish()
-        wishes = wishManager.myWishes
         
         //Stars for user input check
         self.titleStar.isHidden = true
@@ -50,10 +46,8 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
             let description: String = wishDescription.text!
             let price = Int(wishPrice.text!)!
             
-            wishManager.addWish(wish_title: title, wish_desc: description, wish_price: price)
+            wishManager.myWishes.append(Wish(title: title, wishDescription: description,price: price ))
             
-            //wishes.append(Wish(title: title, wishDescription: description, price: price))
-          
             self.titleStar.isHidden = true
             self.priceStar.isHidden = true
 

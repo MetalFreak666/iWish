@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import FacebookLogin
 import FacebookCore
 
 class ProfileViewController: UIViewController {
@@ -20,20 +19,13 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
-
     @IBOutlet weak var emailLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Welcome to your profile!");
         setUserData()
-        
-
-
-        /*var ref: DatabaseReference!
-        ref = Database.database().reference()
-        ref.child("users").setValue(["username": "Jebisan"])
-        */
-        
     }
     
     func setUserData (){
@@ -66,6 +58,8 @@ class ProfileViewController: UIViewController {
     func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
+    
+    
     func downloadImage(from url: URL) {
         getData(from: url) {
             data, response, error in

@@ -8,6 +8,7 @@
 import UIKit
 import FacebookLogin
 import FacebookCore
+import Firebase
 
 
 
@@ -21,8 +22,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
     }
+    
     @IBAction func facebookLoginHandler(_ sender: UIButton) {
         loginWithReadPermissions()
     }
@@ -59,6 +60,10 @@ class LoginViewController: UIViewController {
                 message: "Login succeeded with granted permissions: \(grantedPermissions)",
                 preferredStyle: .alert
             )
+            
+           
+            getMyWishes()
+           
             redirectToTabBar()
         }
         self.present(alertController, animated: true, completion: nil)
@@ -85,6 +90,29 @@ class LoginViewController: UIViewController {
         )
         present(alertController, animated: true, completion: nil)
     }
+    
+    func getMyWishes () {
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        
+        ref.child("users/Jebisan/wishes").observeSingleEvent(of: .value){
+            (snapshot) in
+            let wishes = snapshot.value as? [String: Any]
+            
+            for (key,value) in wishes! {
+                
+                let dictionary = value as! NSDictionary
+                
+                let title = dictionary["title"] as! String
+                let description = dictionary["description"] as! String
+                let price = dictionary["price"] as! Int
+                
+                WishManager.shared.myWishes.append(Wish(title: title, wishDescription: description, price: price))
+                
+            }
+        }
+    }
+
     
 }
 

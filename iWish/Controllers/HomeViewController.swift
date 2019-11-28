@@ -30,8 +30,6 @@ class HomeViewController: UIViewController {
                 
                 self.fbFirstName = dict["first_name"] as! String
                 self.welcomeText.text = "Welcome back, " + self.fbFirstName + "!"
-                
-                
             }
             )
         }
