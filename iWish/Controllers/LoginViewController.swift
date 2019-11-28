@@ -20,10 +20,11 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    func getURL () -> String {
-        return fbPickUrl
+        let loginButton = FBLoginButton(permissions: [ .publicProfile ])
+        loginButton.center = view.center
+        
+        view.addSubview(loginButton)
+
     }
     
     func redirectToTabBar () {
@@ -36,10 +37,10 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginWithFacebook(_ sender: UIButton) {
-        self.loginWithReadPermissions()
+       // self.loginWithReadPermissions()
         
     }
-    
+    /*
     func loginManagerDidComplete(_ result: LoginResult) {
         let alertController: UIAlertController
         switch result {
@@ -70,29 +71,7 @@ class LoginViewController: UIViewController {
         }
         
     }
-    
-    @IBAction private func loginWithReadPermissions() {
-        let loginManager = LoginManager()
-        loginManager.logIn(
-            permissions: [.publicProfile],
-            viewController: self
-        ) { result in
-            self.loginManagerDidComplete(result)
-        }
-    }
-    
-    @IBAction private func logOut() {
-        let loginManager = LoginManager()
-        loginManager.logOut()
-        
-        let alertController = UIAlertController(
-            title: "Logout",
-            message: "Logged out.",
-            preferredStyle: .alert
-        )
-        present(alertController, animated: true, completion: nil)
-    }
-    
+    */
 }
 
 
