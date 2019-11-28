@@ -107,6 +107,10 @@ class LoginViewController: UIViewController {
                 let description = dictionary["description"] as! String
                 let price = dictionary["price"] as! Int
                 
+                print(title)
+                print(description)
+                print(price)
+                
                 WishManager.shared.myWishes.append(Wish(title: title, wishDescription: description, price: price))
                 
             }

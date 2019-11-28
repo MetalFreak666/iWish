@@ -37,8 +37,7 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
         print("Welcome to the Add Wish Screen!");
         
         //Init of WishManager class with some test data
-        wishManager = WishManager()
-        wishManager.createWish()
+
         wishes = wishManager.myWishes
         
         //Stars for user input check
@@ -61,7 +60,7 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
             let description: String = wishDescription.text!
             let price = Int(wishPrice.text!)!
             
-            wishManager.addWish(wish_title: title, wish_desc: description, wish_price: price)
+            WishManager.shared.myWishes.append(Wish(title: title, wishDescription: description, price: price))
             
             self.titleStar.isHidden = true
             self.priceStar.isHidden = true

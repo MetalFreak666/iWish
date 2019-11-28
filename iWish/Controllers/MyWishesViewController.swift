@@ -18,15 +18,11 @@ class MyWishesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //init
-
-        
         wishTableView.dataSource = self
         wishTableView.delegate = self
         
         print("Welcome to the My Wishes screen!");
     }
-    
-  
 }
 
 
