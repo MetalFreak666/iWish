@@ -15,6 +15,7 @@ class WishManager {
     
     var myWishes: [Wish] = []
     
+    
     private init() {}
     
     

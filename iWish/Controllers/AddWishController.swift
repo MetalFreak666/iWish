@@ -63,18 +63,26 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
             self.titleStar.isHidden = true
             self.priceStar.isHidden = true
             
-            addWishToDatabase()
-
+            self.addWishToDatabase(title: wishTitle.text!,description: wishDescription.text!,price: Int(wishPrice.text!)!)
 
         }
     }
     
-    func addWishToDatabase(){
+    func addWishToDatabase (title: String, description: String, price: Int){
+        
         var ref: DatabaseReference!
         ref = Database.database().reference()
-        ref.child("users/"+UserManager.shared.ID+"/wishes").setValue("TEST")
-
+        
+        let dictionary: NSDictionary = [
+            "title" : title,
+            "description" : description,
+            "price" : price,
+        ]
+        
+        ref.child("users").child(UserManager.shared.ID+"/wishes").childByAutoId().setValue(dictionary)
+        
     }
+
     
   
     

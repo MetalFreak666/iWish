@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import FacebookLogin
-import FacebookCore
+import Firebase
 
 
 class HomeViewController: UIViewController {
@@ -19,7 +18,9 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         welcomeText.text = "Welcome back, "+UserManager.shared.firstName+"!"
-    }
+        
+        }
+    
     
     
 }
