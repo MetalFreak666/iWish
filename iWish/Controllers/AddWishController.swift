@@ -9,11 +9,10 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Firebase
 
 class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    private var wishManager: WishManager!
-    private var wishes: [Wish]!
     
     //Defining region for location
     let locationManager = CLLocationManager()
@@ -38,7 +37,6 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
         
         //Init of WishManager class with some test data
 
-        wishes = wishManager.myWishes
         
         //Stars for user input check
         self.titleStar.isHidden = true
@@ -64,8 +62,18 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
             
             self.titleStar.isHidden = true
             self.priceStar.isHidden = true
+            
+            addWishToDatabase()
+
 
         }
+    }
+    
+    func addWishToDatabase(){
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        ref.child("users/"+UserManager.shared.ID+"/wishes").setValue("TEST")
+
     }
     
   

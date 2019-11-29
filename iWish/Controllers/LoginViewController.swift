@@ -13,11 +13,6 @@ import Firebase
 
 
 class LoginViewController: UIViewController {
-
-    var fbId : String = "INITIAL"
-    var fbEmail : String = "INITIAL"
-    var fbFirstName : String = "INITIAL"
-    var fbPickUrl : String = "INITIAL"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,13 +23,12 @@ class LoginViewController: UIViewController {
         loginWithReadPermissions()
     }
     
+    @IBAction func skip(_ sender: UIButton) {
+        redirectToTabBar()
+    }
     func redirectToTabBar () {
         let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarController") as UIViewController
         self.present(viewController, animated: false, completion: nil)
-    }
-    
-    @IBAction func loginWithGoogle(_ sender: UIButton) {
-        redirectToTabBar()
     }
     
     func loginManagerDidComplete(_ result: LoginResult) {
@@ -61,8 +55,7 @@ class LoginViewController: UIViewController {
                 preferredStyle: .alert
             )
             
-           
-            getMyWishes()
+            setUserData()
            
             redirectToTabBar()
         }
@@ -91,29 +84,53 @@ class LoginViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    func getMyWishes () {
+    func setUserData () {
+        if AccessToken.current?.tokenString != nil {
+            GraphRequest(graphPath: "me", parameters:["fields": "id, name, first_name, last_name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
+                if (error == nil){
+                    let dict = result as! NSDictionary
+
+                    UserManager.shared.ID=dict["id"] as! String
+                    UserManager.shared.fullname=dict["name"] as! String
+                    UserManager.shared.firstName=dict["first_name"] as! String
+                    UserManager.shared.lastName=dict["last_name"] as! String
+                    UserManager.shared.picture = (((dict["picture"] as? [String: Any])?["data"] as? [String:Any])?["url"] as? String)!
+                    UserManager.shared.email=dict["email"] as! String
+                    self.setMyWishes()
+                }
+            }
+                
+            )
+        }
+    }
+    
+
+    func setMyWishes () {
         var ref: DatabaseReference!
         ref = Database.database().reference()
         
-        ref.child("users/Jebisan/wishes").observeSingleEvent(of: .value){
+        ref.child("users/"+UserManager.shared.ID+"/wishes").observeSingleEvent(of: .value){
             (snapshot) in
             let wishes = snapshot.value as? [String: Any]
             
-            for (key,value) in wishes! {
-                
-                let dictionary = value as! NSDictionary
-                
-                let title = dictionary["title"] as! String
-                let description = dictionary["description"] as! String
-                let price = dictionary["price"] as! Int
-                
-                print(title)
-                print(description)
-                print(price)
-                
-                WishManager.shared.myWishes.append(Wish(title: title, wishDescription: description, price: price))
+            if wishes != nil {
+                for (key,value) in wishes! {
+                    
+                    let dictionary = value as! NSDictionary
+                    
+                    let title = dictionary["title"] as! String
+                    let description = dictionary["description"] as! String
+                    let price = dictionary["price"] as! Int
+                    
+                    print(title)
+                    print(description)
+                    print(price)
+                    WishManager.shared.myWishes.append(Wish(title: title, wishDescription: description, price: price))
+                    
+                }
                 
             }
+      
         }
     }
 

@@ -17,10 +17,6 @@ class WishManager {
     
     private init() {}
     
-    func getWishes () -> [Wish] {
-        return myWishes
-    }
-    
     
     
     
