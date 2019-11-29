@@ -170,9 +170,12 @@
                                 </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N9W-jN-h5a">
-                                <rect key="frame" x="146" y="413" width="83" height="30"/>
+                                <rect key="frame" x="145" y="413" width="86" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Get location"/>
+                                <state key="normal" title="Set Location"/>
+                                <connections>
+                                    <action selector="userLocationIsActive:" destination="UoX-hT-ZhB" eventType="touchUpInside" id="1Dr-qj-fLi"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

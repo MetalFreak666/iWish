@@ -19,6 +19,8 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
     let regionLatMeters: Double = 2000
     let regionLongMeter: Double = 1500
     
+    var setLocationIsActive = false
+    
     //TextFields title and description
     @IBOutlet weak var wishTitle: UITextField!
     @IBOutlet weak var wishDescription: UITextField!
@@ -32,7 +34,7 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkIfLocationServiceIsAvailable()
+        
         print("Welcome to the Add Wish Screen!");
         
         //Init of WishManager class with some test data
@@ -43,6 +45,15 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
         self.priceStar.isHidden = true
     }
     
+    
+    @IBAction func userLocationIsActive(_ sender: Any) {
+        checkIfLocationServiceIsAvailable()
+        setLocationIsActive = true
+        
+    }
+    
+    
+    
     @IBAction func addWish(_ sender: UIBarButtonItem) {
         
         print("Wish added!")
@@ -52,6 +63,24 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
         } else if let input = wishPrice.text, input.isEmpty {
             self.priceStar.isHidden = false
             //Proceed from her
+        } else if setLocationIsActive == true {
+            print("User location is active")
+            //Converting values from inputText
+            let title: String = wishTitle.text!
+            let description: String = wishDescription.text!
+            let price = Int(wishPrice.text!)!
+            let userLocationLat = locationManager.location?.coordinate.latitude
+            let userLocationLong = locationManager.location?.coordinate.longitude
+            print("User current location")
+            print(userLocationLat, userLocationLong)
+            
+            //WishManager.shared.myWishes.append(Wish(title: title, wishDescription: description, price: price, latitude: userLocationLat, longitude: userLocationLong))
+            
+            self.titleStar.isHidden = true
+            self.priceStar.isHidden = true
+            
+            //self.addWishToDatabase(title: wishTitle.text!,description: wishDescription.text!,price: Int(wishPrice.text!)!, wishLocationLong: userLongitude!, wishLocationLat: userLatitude)
+            
         } else {
             //Converting values from inputText
             let title: String = wishTitle.text!
@@ -179,13 +208,11 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
 extension AddWishController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocation locations: [CLLocation]) {
-        guard let location = locations.last else
-        {
-            return
-        }
+        guard let location = locations.last else { return }
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         let region = MKCoordinateRegion.init(center: center, latitudinalMeters: regionLatMeters, longitudinalMeters: regionLongMeter)
         locationView.setRegion(region, animated: true)
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
