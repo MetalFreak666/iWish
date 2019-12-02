@@ -196,9 +196,11 @@
                         <outlet property="wishDescription" destination="xgw-0X-R8d" id="Knm-Sf-LTV"/>
                         <outlet property="wishPrice" destination="etd-dC-UkO" id="Jnw-Za-z5V"/>
                         <outlet property="wishTitle" destination="vBW-zz-ytH" id="FH1-2E-crY"/>
+                        <segue destination="eYC-YP-uye" kind="unwind" identifier="unwindToMyWishes" unwindAction="unwindToMyWishesWithSegue:" id="VkE-HB-H9B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Qz-Vv-Sdv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="eYC-YP-uye" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3924" y="141.67916041979012"/>
         </scene>

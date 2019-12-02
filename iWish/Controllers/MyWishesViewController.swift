@@ -15,6 +15,11 @@ class MyWishesViewController: UIViewController {
 
     @IBOutlet weak var wishTableView: UITableView!
     
+    @IBAction func unwindToMyWishes(segue: UIStoryboardSegue) {
+       
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //init

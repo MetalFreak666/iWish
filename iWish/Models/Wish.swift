@@ -14,8 +14,7 @@ struct Wish {
     var wishDescription: String
     var price: Int
     //Use when implemented in DB
-    //var latitude: Double
-    //var longitude: Double
+    var location: Location? = nil
     //var wishPhoto: UIImage?
     
 }

@@ -10,18 +10,12 @@ import UIKit
 
 class Location {
     
-    var latitude: Double
-    var longitude: Double
-    var date: Date
-    var dateString: String
-    var description: String
+    var latitude: Double? = nil
+    var longitude: Double? = nil
     
-    init(latitude: Double, longitude: Double, date: Date, dateString: String, description: String) {
+    init(latitude: Double, longitude: Double) {
         self.latitude = latitude
         self.longitude = longitude
-        self.date = date
-        self.dateString = dateString
-        self.description = description
     }
     
 }

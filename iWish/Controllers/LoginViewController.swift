@@ -19,6 +19,11 @@ class LoginViewController: UIViewController {
         
     }
     
+    @IBAction func unwindToMyWishes(segue: UIStoryboardSegue) {
+        
+    }
+
+    
     @IBAction func facebookLoginHandler(_ sender: UIButton) {
         loginWithReadPermissions()
     }
@@ -26,6 +31,7 @@ class LoginViewController: UIViewController {
     @IBAction func skip(_ sender: UIButton) {
         redirectToTabBar()
     }
+    
     func redirectToTabBar () {
         let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarController") as UIViewController
         self.present(viewController, animated: false, completion: nil)
@@ -118,14 +124,14 @@ class LoginViewController: UIViewController {
                     
                     let dictionary = value as! NSDictionary
                     
+                    
                     let title = dictionary["title"] as! String
                     let description = dictionary["description"] as! String
                     let price = dictionary["price"] as! Int
+                    let location = dictionary["location"] as? Location
+
                     
-                    print(title)
-                    print(description)
-                    print(price)
-                    WishManager.shared.myWishes.append(Wish(title: title, wishDescription: description, price: price))
+                    WishManager.shared.myWishes.append(Wish(title: title, wishDescription: description, price: price, location: location))
                     
                 }
                 

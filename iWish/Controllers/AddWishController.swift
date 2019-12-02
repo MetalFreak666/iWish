@@ -69,44 +69,82 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
             let title: String = wishTitle.text!
             let description: String = wishDescription.text!
             let price = Int(wishPrice.text!)!
+            
+
             let userLocationLat = locationManager.location?.coordinate.latitude
             let userLocationLong = locationManager.location?.coordinate.longitude
-            print("User current location")
-            print(userLocationLat, userLocationLong)
+            let userLocation = Location(latitude: userLocationLat!, longitude: userLocationLong!)
             
-            //WishManager.shared.myWishes.append(Wish(title: title, wishDescription: description, price: price, latitude: userLocationLat, longitude: userLocationLong))
+            
+            print("User current location")
+            print(userLocationLat!, userLocationLong!)
+            
+            WishManager.shared.myWishes.append(Wish(title: title, wishDescription: description, price: price, location: userLocation))
             
             self.titleStar.isHidden = true
             self.priceStar.isHidden = true
             
-            //self.addWishToDatabase(title: wishTitle.text!,description: wishDescription.text!,price: Int(wishPrice.text!)!, wishLocationLong: userLongitude!, wishLocationLat: userLatitude)
+            self.addWishToDatabase(title: wishTitle.text!,description: wishDescription.text!,price: Int(wishPrice.text!)!, location: userLocation)
             
+            let alert = UIAlertController(title: "Wish added!!", message: "Your wish has successfully been added!!", preferredStyle: .alert)
+            
+            let OKAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {
+                        (_)in
+                        self.performSegue(withIdentifier: "unwindToMyWishes", sender: self)
+                    })
+            
+                alert.addAction(OKAction)
+                self.present(alert, animated: true, completion: nil)
+
+
+
         } else {
             //Converting values from inputText
             let title: String = wishTitle.text!
             let description: String = wishDescription.text!
             let price = Int(wishPrice.text!)!
             
-            WishManager.shared.myWishes.append(Wish(title: title, wishDescription: description, price: price))
+            WishManager.shared.myWishes.append(Wish(title: title, wishDescription: description, price: price, location: nil))
             
             self.titleStar.isHidden = true
             self.priceStar.isHidden = true
             
-            self.addWishToDatabase(title: wishTitle.text!,description: wishDescription.text!,price: Int(wishPrice.text!)!)
-
+            self.addWishToDatabase(title: wishTitle.text!,description: wishDescription.text!,price: Int(wishPrice.text!)!,location: nil )
+           
+            
+            let alert = UIAlertController(title: "Wish added!!", message: "Your wish has successfully been added!!", preferredStyle: .alert)
+            
+            let OKAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {
+                (_)in
+                self.performSegue(withIdentifier: "unwindToMyWishes", sender: self)
+            })
+            
+            alert.addAction(OKAction)
+            self.present(alert, animated: true, completion: nil)
+            
         }
     }
     
-    func addWishToDatabase (title: String, description: String, price: Int){
+
+    
+    func addWishToDatabase (title: String, description: String, price: Int, location: Location?){
         
         var ref: DatabaseReference!
         ref = Database.database().reference()
+        
+        let locationDictionary: NSDictionary = [
+            "latitude": location?.latitude,
+            "longitude": location?.longitude
+        ]
         
         let dictionary: NSDictionary = [
             "title" : title,
             "description" : description,
             "price" : price,
+            "location": locationDictionary
         ]
+        
+       
         
         ref.child("users").child(UserManager.shared.ID+"/wishes").childByAutoId().setValue(dictionary)
         
