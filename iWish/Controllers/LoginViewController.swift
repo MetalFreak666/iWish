@@ -10,17 +10,13 @@ import FacebookLogin
 import FacebookCore
 import Firebase
 
-
-
 class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     @IBAction func unwindToMyWishes(segue: UIStoryboardSegue) {
-        
     }
 
     
@@ -34,8 +30,9 @@ class LoginViewController: UIViewController {
     
     func redirectToTabBar () {
         let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarController") as UIViewController
-        self.present(viewController, animated: false, completion: nil)
+        self.present(viewController, animated: true, completion: nil)
     }
+    
     
     func loginManagerDidComplete(_ result: LoginResult) {
         let alertController: UIAlertController
@@ -77,18 +74,8 @@ class LoginViewController: UIViewController {
             self.loginManagerDidComplete(result)
         }
     }
-    
-    @IBAction private func logOut() {
-        let loginManager = LoginManager()
-        loginManager.logOut()
-        
-        let alertController = UIAlertController(
-            title: "Logout",
-            message: "Logged out.",
-            preferredStyle: .alert
-        )
-        present(alertController, animated: true, completion: nil)
-    }
+
+
     
     func setUserData () {
         if AccessToken.current?.tokenString != nil {

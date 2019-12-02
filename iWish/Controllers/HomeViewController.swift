@@ -22,6 +22,9 @@ class HomeViewController: UIViewController {
         }
     
     
+    @IBAction func logOut(_ sender: UIButton) {
+        print("LOG UD")
+    }
     
 }
 

@@ -240,20 +240,20 @@
                                 <color key="textColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oto-4t-B7u">
-                                <rect key="frame" x="135" y="505" width="104" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Facebook login"/>
-                                <connections>
-                                    <action selector="facebookLoginHandler:" destination="zgf-oI-noe" eventType="touchUpInside" id="wp7-6D-9ab"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8c-fQ-9ro">
-                                <rect key="frame" x="171" y="543" width="33" height="30"/>
+                                <rect key="frame" x="171" y="598" width="33" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="SKIP"/>
                                 <connections>
                                     <action selector="skip:" destination="zgf-oI-noe" eventType="touchUpInside" id="SDC-oh-9WZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oto-4t-B7u">
+                                <rect key="frame" x="53" y="504" width="269" height="94"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Facebook login" image="LoginButton"/>
+                                <connections>
+                                    <action selector="facebookLoginHandler:" destination="zgf-oI-noe" eventType="touchUpInside" id="wp7-6D-9ab"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -333,6 +333,16 @@
                                 <rect key="frame" x="117" y="57" width="140" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQm-vc-JOe">
+                                <rect key="frame" x="310" y="39" width="52" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log out">
+                                    <color key="titleColor" red="0.2666707337" green="0.26665931939999998" blue="0.26666706800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="logOut:" destination="K7f-c1-1Uk" eventType="touchUpInside" id="0T1-R4-PIg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="HYr-Vd-O0h"/>
@@ -391,6 +401,7 @@
     <resources>
         <image name="Gift" width="25" height="25"/>
         <image name="Home" width="30" height="30"/>
+        <image name="LoginButton" width="800" height="300"/>
         <image name="User" width="25" height="25"/>
     </resources>
 </document>

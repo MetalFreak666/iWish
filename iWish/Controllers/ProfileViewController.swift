@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FacebookLogin
 import FacebookCore
 
 class ProfileViewController: UIViewController {
@@ -22,11 +23,18 @@ class ProfileViewController: UIViewController {
         self.nameLabel.text = UserManager.shared.fullname
         self.emailLabel.text = UserManager.shared.email
         self.downloadImage(from: URL(string: UserManager.shared.picture)!)
-        print("THIS IS MY ID: "+UserManager.shared.ID)
-
     }
     
+    @IBAction func logOut(_ sender: UIButton) {
+        
+        let loginManager = LoginManager()
+        loginManager.logOut()
+        
+        
+        dismiss(animated: true, completion: nil)
+    }
     
+
     func downloadImage(from url: URL) {
         getData(from: url) {
             data, response, error in
