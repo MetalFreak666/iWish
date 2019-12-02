@@ -51,19 +51,11 @@ class LoginViewController: UIViewController {
                 preferredStyle: .alert
             )
             
-        case .success(let grantedPermissions, _, _):
-            alertController = UIAlertController(
-                title: "Login Success",
-                message: "Login succeeded with granted permissions: \(grantedPermissions)",
-                preferredStyle: .alert
-            )
-            
+        case .success(_, _, _):
             setUserData()
-           
-            redirectToTabBar()
+
         }
-        self.present(alertController, animated: true, completion: nil)
-    }
+            }
     
     @IBAction private func loginWithReadPermissions() {
         let loginManager = LoginManager()
@@ -125,6 +117,8 @@ class LoginViewController: UIViewController {
             }
       
         }
+        redirectToTabBar()
+
     }
 
     
