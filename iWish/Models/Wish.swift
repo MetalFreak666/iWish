@@ -9,12 +9,11 @@
 import Foundation
 
 struct Wish {
-    
+    var id: String
     var title: String
     var wishDescription: String
     var price: Int
-    //Use when implemented in DB
     var location: Location? = nil
-    //var wishPhoto: UIImage?
+    //var Photo: UIImage?
     
 }

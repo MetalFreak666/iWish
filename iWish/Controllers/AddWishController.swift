@@ -14,7 +14,7 @@ import MobileCoreServices
 
 class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    
+
     //Defining region for location
     let locationManager = CLLocationManager()
     let regionLatMeters: Double = 200
@@ -50,7 +50,6 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
     @IBAction func userLocationIsActive(_ sender: Any) {
         checkIfLocationServiceIsAvailable()
         setLocationIsActive = true
-        
     }
     
     
@@ -75,28 +74,23 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
             let userLocationLat = locationManager.location?.coordinate.latitude
             let userLocationLong = locationManager.location?.coordinate.longitude
             let userLocation = Location(latitude: userLocationLat!, longitude: userLocationLong!)
+
             
-            
-            print("User current location")
-            print(userLocationLat!, userLocationLong!)
-            
-            WishManager.shared.myWishes.append(Wish(title: title, wishDescription: description, price: price, location: userLocation))
             
             self.titleStar.isHidden = true
             self.priceStar.isHidden = true
             
-            self.addWishToDatabase(title: wishTitle.text!,description: wishDescription.text!,price: Int(wishPrice.text!)!, location: userLocation)
+            
+            var key = self.addWishToDatabase(title: wishTitle.text!,description: wishDescription.text!,price: Int(wishPrice.text!)!, location: userLocation)
+            WishManager.shared.myWishes.append(Wish(id: key, title: title, wishDescription: description, price: price, location: userLocation))
+
             
             let alert = UIAlertController(title: "Wish added!!", message: "Your wish has successfully been added!!", preferredStyle: .alert)
             
-            let OKAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {
-                (_)in
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {(_)in
                 self.performSegue(withIdentifier: "unwindToMyWishes", sender: self)
-            })
-            
-            alert.addAction(OKAction)
+            }))
             self.present(alert, animated: true, completion: nil)
-            
             
             
         } else {
@@ -105,31 +99,23 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
             let description: String = wishDescription.text!
             let price = Int(wishPrice.text!)!
             
-            WishManager.shared.myWishes.append(Wish(title: title, wishDescription: description, price: price, location: nil))
+            var key = self.addWishToDatabase(title: wishTitle.text!,description: wishDescription.text!,price: Int(wishPrice.text!)!,location: nil )
+            WishManager.shared.myWishes.append(Wish(id: key,title: title, wishDescription: description, price: price, location: nil))
             
             self.titleStar.isHidden = true
             self.priceStar.isHidden = true
             
-            self.addWishToDatabase(title: wishTitle.text!,description: wishDescription.text!,price: Int(wishPrice.text!)!,location: nil )
-            
-            
             let alert = UIAlertController(title: "Wish added!!", message: "Your wish has successfully been added!!", preferredStyle: .alert)
             
-            let OKAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {
-                (_)in
-                self.performSegue(withIdentifier: "unwindToMyWishes", sender: self)
-            })
-            
-            alert.addAction(OKAction)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {(_)in
+                self.performSegue(withIdentifier: "unwindToMyWishes", sender: self)}))
             self.present(alert, animated: true, completion: nil)
-            
         }
     }
     
     
     
-    func addWishToDatabase (title: String, description: String, price: Int, location: Location?){
-        
+    func addWishToDatabase (title: String, description: String, price: Int, location: Location?) -> String {
         var ref: DatabaseReference!
         ref = Database.database().reference()
         
@@ -145,10 +131,13 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
             "location": locationDictionary
         ]
         
+        var reference = ref.child("users").child(UserManager.shared.ID).child("wishes").childByAutoId()
         
+        reference.setValue(dictionary)
+        var key = reference.key!
+
         
-        ref.child("users").child(UserManager.shared.ID+"/wishes").childByAutoId().setValue(dictionary)
-        
+        return key
     }
     
     

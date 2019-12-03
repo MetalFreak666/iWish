@@ -109,7 +109,7 @@ class LoginViewController: UIViewController {
                     let location = dictionary["location"] as? Location
 
                     
-                    WishManager.shared.myWishes.append(Wish(title: title, wishDescription: description, price: price, location: location))
+                    WishManager.shared.myWishes.append(Wish(id: key, title: title, wishDescription: description, price: price, location: location))
                     
                 }
                 
