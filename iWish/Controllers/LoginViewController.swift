@@ -50,7 +50,6 @@ class LoginViewController: UIViewController {
                 message: "Login failed with error \(error)",
                 preferredStyle: .alert
             )
-            
         case .success(_, _, _):
             setUserData()
 

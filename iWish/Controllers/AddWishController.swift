@@ -10,14 +10,15 @@ import UIKit
 import MapKit
 import CoreLocation
 import Firebase
+import MobileCoreServices
 
 class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
     //Defining region for location
     let locationManager = CLLocationManager()
-    let regionLatMeters: Double = 2000
-    let regionLongMeter: Double = 1500
+    let regionLatMeters: Double = 200
+    let regionLongMeter: Double = 150
     
     var setLocationIsActive = false
     
@@ -38,7 +39,7 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
         print("Welcome to the Add Wish Screen!");
         
         //Init of WishManager class with some test data
-
+        
         
         //Stars for user input check
         self.titleStar.isHidden = true
@@ -70,7 +71,7 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
             let description: String = wishDescription.text!
             let price = Int(wishPrice.text!)!
             
-
+            
             let userLocationLat = locationManager.location?.coordinate.latitude
             let userLocationLong = locationManager.location?.coordinate.longitude
             let userLocation = Location(latitude: userLocationLat!, longitude: userLocationLong!)
@@ -89,15 +90,15 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
             let alert = UIAlertController(title: "Wish added!!", message: "Your wish has successfully been added!!", preferredStyle: .alert)
             
             let OKAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {
-                        (_)in
-                        self.performSegue(withIdentifier: "unwindToMyWishes", sender: self)
-                    })
+                (_)in
+                self.performSegue(withIdentifier: "unwindToMyWishes", sender: self)
+            })
             
-                alert.addAction(OKAction)
-                self.present(alert, animated: true, completion: nil)
-
-
-
+            alert.addAction(OKAction)
+            self.present(alert, animated: true, completion: nil)
+            
+            
+            
         } else {
             //Converting values from inputText
             let title: String = wishTitle.text!
@@ -110,7 +111,7 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
             self.priceStar.isHidden = true
             
             self.addWishToDatabase(title: wishTitle.text!,description: wishDescription.text!,price: Int(wishPrice.text!)!,location: nil )
-           
+            
             
             let alert = UIAlertController(title: "Wish added!!", message: "Your wish has successfully been added!!", preferredStyle: .alert)
             
@@ -125,7 +126,7 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
         }
     }
     
-
+    
     
     func addWishToDatabase (title: String, description: String, price: Int, location: Location?){
         
@@ -144,56 +145,56 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
             "location": locationDictionary
         ]
         
-       
+        
         
         ref.child("users").child(UserManager.shared.ID+"/wishes").childByAutoId().setValue(dictionary)
         
     }
-
     
-  
+    
+    
     
     @IBAction func chooseImage(_ sender: Any) {
-        
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
-        
+
         
         let actionSheet = UIAlertController(title: "Photo Source", message: "Choose a source", preferredStyle: .actionSheet)
         
         actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: {(action:UIAlertAction) in
-            
             if UIImagePickerController.isSourceTypeAvailable(.camera) {
                 imagePickerController.sourceType = .camera
-                self.present(imagePickerController, animated: true, completion: nil)
-                } else {
-                print("Device has no camera..")
-                }
-            imagePickerController.sourceType = .camera
-            self.present(imagePickerController, animated: true, completion: nil)
-            
+                imagePickerController.mediaTypes = [kUTTypeImage as String]
+                self.present(imagePickerController, animated: true)
+            }
+            else {
+                let alert = UIAlertController(title: "Error", message: "Device has no camera", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: nil))
+                self.present(alert, animated: true)
+            }
         }))
         
-        actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: {(action:UIAlertAction) in imagePickerController.sourceType = .photoLibrary
+        actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: {(action:UIAlertAction) in
+            imagePickerController.sourceType = .photoLibrary
             self.present(imagePickerController, animated: true, completion: nil)
         }))
         
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
-
-    self.present(actionSheet, animated: true, completion: nil)
+        self.present(actionSheet, animated: true, completion: nil)
     }
-
-
+    
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         picker.dismiss(animated: true)
-        
         let image = info[.originalImage] as! UIImage
         imageView.image = image
     }
-
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
+        picker.dismiss(animated: true)
     }
+    
+    
     
     //Checking if location service is enabled on user device
     func checkIfLocationServiceIsAvailable() {
