@@ -7,13 +7,14 @@
 //
 
 import Foundation
+import UIKit
 
 struct Wish {
     var id: String
     var title: String
     var wishDescription: String
     var price: Int
-    var location: Location? = nil
-    //var Photo: UIImage?
+    var location: Location?
+    var Photo: UIImage?
     
 }

@@ -53,55 +53,36 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
     
     
     @IBAction func addWish(_ sender: UIBarButtonItem) {
-        print("Wish added!")
         
         if let input = wishTitle.text, input.isEmpty {
             self.titleStar.isHidden = false
         } else if let input = wishPrice.text, input.isEmpty {
             self.priceStar.isHidden = false
-            //Proceed from her
-        } else if setLocationIsActive == true {
-            print("User location is active")
-            //Converting values from inputText
+        } else  {
+            
+            self.titleStar.isHidden = true
+            self.priceStar.isHidden = true
+            
             let title: String = wishTitle.text!
             let description: String = wishDescription.text!
             let price = Int(wishPrice.text!)!
+            var userLocation:Location?
             
-            
-            let userLocationLat = locationManager.location?.coordinate.latitude
-            let userLocationLong = locationManager.location?.coordinate.longitude
-            let userLocation = Location(latitude: userLocationLat!, longitude: userLocationLong!)
-
-            self.titleStar.isHidden = true
-            self.priceStar.isHidden = true
+            if setLocationIsActive == true {
+                userLocation = Location(latitude: locationManager.location?.coordinate.latitude, longitude: locationManager.location?.coordinate.longitude)
+            } else {
+                userLocation = nil
+            }
             
             var key = self.addWishToDatabase(title: wishTitle.text!,description: wishDescription.text!,price: Int(wishPrice.text!)!, location: userLocation)
-            WishManager.shared.myWishes.append(Wish(id: key, title: title, wishDescription: description, price: price, location: userLocation))
-            
-            let alert = UIAlertController(title: "Wish added!!", message: "Your wish has successfully been added!!", preferredStyle: .alert)
-            
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {(_)in
-                self.performSegue(withIdentifier: "unwindToMyWishes", sender: self)
-            }))
-            self.present(alert, animated: true, completion: nil)
-            
-        } else {
-            //Converting values from inputText
-            let title: String = wishTitle.text!
-            let description: String = wishDescription.text!
-            let price = Int(wishPrice.text!)!
-            
-            var key = self.addWishToDatabase(title: wishTitle.text!,description: wishDescription.text!,price: Int(wishPrice.text!)!,location: nil )
-            WishManager.shared.myWishes.append(Wish(id: key,title: title, wishDescription: description, price: price, location: nil))
-            
-            self.titleStar.isHidden = true
-            self.priceStar.isHidden = true
+            WishManager.shared.myWishes.append(Wish(id: key, title: title, wishDescription: description, price: price, location: userLocation, Photo: nil))
             
             let alert = UIAlertController(title: "Wish added!!", message: "Your wish has successfully been added!!", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {(_)in
                 self.performSegue(withIdentifier: "unwindToMyWishes", sender: self)}))
             self.present(alert, animated: true, completion: nil)
+            
         }
     }
     

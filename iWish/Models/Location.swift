@@ -8,14 +8,11 @@
 
 import UIKit
 
-class Location {
-    
-    var latitude: Double? = nil
-    var longitude: Double? = nil
-    
-    init(latitude: Double, longitude: Double) {
-        self.latitude = latitude
-        self.longitude = longitude
-    }
-    
+
+struct Location {
+    var latitude: Double?
+    var longitude: Double?
 }
+
+
+

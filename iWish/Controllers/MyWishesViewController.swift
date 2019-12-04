@@ -51,7 +51,6 @@ extension MyWishesViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let viewCell = storyboard?.instantiateViewController(withIdentifier: "CellDetailViewController") as? CellDetailViewController
-        
         self.navigationController?.pushViewController(viewCell!, animated: true)
     }
 
