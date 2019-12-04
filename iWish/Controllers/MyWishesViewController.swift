@@ -18,20 +18,15 @@ class MyWishesViewController: UIViewController {
        
     }
     
-    @IBAction func reloadView(_ sender: Any) {
-        reload()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         //init
         wishTableView.dataSource = self
         wishTableView.delegate = self
-        self.reload();
         print("Welcome to the My Wishes screen!");
     }
     
-    func reload() {
+    override func viewWillAppear(_ animated: Bool) {
         wishTableView.reloadData()
     }
 }

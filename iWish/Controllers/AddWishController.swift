@@ -85,7 +85,6 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
             }))
             self.present(alert, animated: true, completion: nil)
             
-            
         } else {
             //Converting values from inputText
             let title: String = wishTitle.text!
