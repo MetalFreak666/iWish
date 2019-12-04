@@ -202,7 +202,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Qz-Vv-Sdv" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="eYC-YP-uye" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3924" y="141.67916041979012"/>
+            <point key="canvasLocation" x="4111" y="-144"/>
+        </scene>
+        <!--Cell Detail View Controller-->
+        <scene sceneID="2Ao-3S-GKH">
+            <objects>
+                <viewController storyboardIdentifier="CellDetailViewController" id="JCA-LZ-8xp" customClass="CellDetailViewController" customModule="iWish" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FQh-1F-pMk" customClass="cell">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6rd-Xp-lAO">
+                                <rect key="frame" x="16" y="29" width="149" height="125"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="S47-CM-EQr">
+                                <rect key="frame" x="16" y="391" width="343" height="256"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cap-Lu-P7b">
+                                <rect key="frame" x="189" y="29" width="170" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQm-0M-BRd">
+                                <rect key="frame" x="16" y="170" width="343" height="213"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zrt-tQ-b2R">
+                                <rect key="frame" x="189" y="81" width="170" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="rPY-l9-rRc"/>
+                    </view>
+                    <connections>
+                        <outlet property="wishDescription" destination="bQm-0M-BRd" id="ijj-kf-hVH"/>
+                        <outlet property="wishLocation" destination="S47-CM-EQr" id="tQ6-gJ-sbe"/>
+                        <outlet property="wishPicture" destination="6rd-Xp-lAO" id="pMw-Fu-H47"/>
+                        <outlet property="wishPrice" destination="Zrt-tQ-b2R" id="2Bp-vj-CoV"/>
+                        <outlet property="wishTitle" destination="Cap-Lu-P7b" id="lFo-1I-NuO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gIk-ps-ylX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3903" y="527"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="zgS-u8-Vfd">

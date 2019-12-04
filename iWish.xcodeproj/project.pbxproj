@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02E042F12397EAE60042D107 /* CellDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E042F02397EAE60042D107 /* CellDetailViewController.swift */; };
 		02ED0A7223759C07002284CD /* (null) in Sources */ = {isa = PBXBuildFile; };
 		02ED0A7423759C38002284CD /* (null) in Sources */ = {isa = PBXBuildFile; };
 		02ED0A762375A9F0002284CD /* AddWishController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ED0A752375A9EF002284CD /* AddWishController.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02E042F02397EAE60042D107 /* CellDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellDetailViewController.swift; sourceTree = "<group>"; };
 		02ED0A752375A9EF002284CD /* AddWishController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWishController.swift; sourceTree = "<group>"; };
 		02ED0A772375AA03002284CD /* Wish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wish.swift; sourceTree = "<group>"; };
 		02ED0A792375B827002284CD /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				8915BC2C237590780035035C /* MyWishesViewController.swift */,
 				02ED0A752375A9EF002284CD /* AddWishController.swift */,
 				5F57956D2385C87F00A5CCD5 /* WishTableViewCell.swift */,
+				02E042F02397EAE60042D107 /* CellDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				89A1305D239132AB007B0603 /* User.swift in Sources */,
 				89A7F7662370AFF600041762 /* iWish.xcdatamodeld in Sources */,
 				8915BC2D237590780035035C /* MyWishesViewController.swift in Sources */,
+				02E042F12397EAE60042D107 /* CellDetailViewController.swift in Sources */,
 				02ED0A762375A9F0002284CD /* AddWishController.swift in Sources */,
 				5F57956E2385C87F00A5CCD5 /* WishTableViewCell.swift in Sources */,
 				89BFBBC723758E310098B5FA /* ProfileViewController.swift in Sources */,
