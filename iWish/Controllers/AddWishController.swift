@@ -13,8 +13,6 @@ import Firebase
 import MobileCoreServices
 
 class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-
     //Defining region for location
     let locationManager = CLLocationManager()
     let regionLatMeters: Double = 200
@@ -55,7 +53,6 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
     
     
     @IBAction func addWish(_ sender: UIBarButtonItem) {
-        
         print("Wish added!")
         
         if let input = wishTitle.text, input.isEmpty {
@@ -75,15 +72,11 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
             let userLocationLong = locationManager.location?.coordinate.longitude
             let userLocation = Location(latitude: userLocationLat!, longitude: userLocationLong!)
 
-            
-            
             self.titleStar.isHidden = true
             self.priceStar.isHidden = true
             
-            
             var key = self.addWishToDatabase(title: wishTitle.text!,description: wishDescription.text!,price: Int(wishPrice.text!)!, location: userLocation)
             WishManager.shared.myWishes.append(Wish(id: key, title: title, wishDescription: description, price: price, location: userLocation))
-
             
             let alert = UIAlertController(title: "Wish added!!", message: "Your wish has successfully been added!!", preferredStyle: .alert)
             

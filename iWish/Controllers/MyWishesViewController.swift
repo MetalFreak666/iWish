@@ -9,7 +9,6 @@
 import UIKit
 import Firebase
 
-
 class MyWishesViewController: UIViewController {
     
 
@@ -19,14 +18,21 @@ class MyWishesViewController: UIViewController {
        
     }
     
+    @IBAction func reloadView(_ sender: Any) {
+        reload()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //init
         wishTableView.dataSource = self
         wishTableView.delegate = self
-        
+        self.reload();
         print("Welcome to the My Wishes screen!");
+    }
+    
+    func reload() {
+        wishTableView.reloadData()
     }
 }
 
@@ -50,8 +56,10 @@ extension MyWishesViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let viewCell = storyboard?.instantiateViewController(withIdentifier: "CellDetailViewController") as? CellDetailViewController
+        
         self.navigationController?.pushViewController(viewCell!, animated: true)
     }
+
 }
 
 
