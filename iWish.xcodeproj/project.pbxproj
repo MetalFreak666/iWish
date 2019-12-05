@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		002944CB2557B14AE0616724 /* Pods_iWish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AB1B761161B060DE9EC48B /* Pods_iWish.framework */; };
 		02E042F12397EAE60042D107 /* CellDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E042F02397EAE60042D107 /* CellDetailViewController.swift */; };
-		02ED0A7223759C07002284CD /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		02ED0A7423759C38002284CD /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		02ED0A7223759C07002284CD /* (null) in Sources */ = {isa = PBXBuildFile; };
+		02ED0A7423759C38002284CD /* (null) in Sources */ = {isa = PBXBuildFile; };
 		02ED0A762375A9F0002284CD /* AddWishController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ED0A752375A9EF002284CD /* AddWishController.swift */; };
 		02ED0A782375AA03002284CD /* Wish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ED0A772375AA03002284CD /* Wish.swift */; };
 		02ED0A7A2375B827002284CD /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ED0A792375B827002284CD /* Location.swift */; };
@@ -26,6 +26,7 @@
 		89A7F7662370AFF600041762 /* iWish.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 89A7F7642370AFF600041762 /* iWish.xcdatamodeld */; };
 		89A7F7682370AFF700041762 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89A7F7672370AFF700041762 /* Assets.xcassets */; };
 		89A7F76B2370AFF700041762 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89A7F7692370AFF700041762 /* LaunchScreen.storyboard */; };
+		89A9D48B23997D7900559903 /* FriendProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A9D48A23997D7900559903 /* FriendProfileViewController.swift */; };
 		89BFBBC723758E310098B5FA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BFBBC623758E310098B5FA /* ProfileViewController.swift */; };
 		89C9125E2375A69300E02CEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89C9125D2375A69200E02CEE /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -52,6 +53,7 @@
 		89A7F7672370AFF700041762 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89A7F76A2370AFF700041762 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89A7F76C2370AFF800041762 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89A9D48A23997D7900559903 /* FriendProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileViewController.swift; sourceTree = "<group>"; };
 		89BFBBC623758E310098B5FA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		89C9125D2375A69200E02CEE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		F0AB1B761161B060DE9EC48B /* Pods_iWish.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iWish.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +98,7 @@
 				02ED0A752375A9EF002284CD /* AddWishController.swift */,
 				5F57956D2385C87F00A5CCD5 /* WishTableViewCell.swift */,
 				02E042F02397EAE60042D107 /* CellDetailViewController.swift */,
+				89A9D48A23997D7900559903 /* FriendProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -278,10 +281,11 @@
 			files = (
 				02ED0A782375AA03002284CD /* Wish.swift in Sources */,
 				02ED0A7A2375B827002284CD /* Location.swift in Sources */,
+				89A9D48B23997D7900559903 /* FriendProfileViewController.swift in Sources */,
 				89A1305B23913206007B0603 /* UserManager.swift in Sources */,
-				02ED0A7423759C38002284CD /* BuildFile in Sources */,
+				02ED0A7423759C38002284CD /* (null) in Sources */,
 				8915BC2B237590190035035C /* HomeViewController.swift in Sources */,
-				02ED0A7223759C07002284CD /* BuildFile in Sources */,
+				02ED0A7223759C07002284CD /* (null) in Sources */,
 				8915BC2923758FCF0035035C /* LoginViewController.swift in Sources */,
 				5F8B0AAD23856890007B7220 /* WishManager.swift in Sources */,
 				89A1305D239132AB007B0603 /* User.swift in Sources */,
