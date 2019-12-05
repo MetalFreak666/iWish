@@ -89,7 +89,6 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
     
     
     func addWishToDatabase (title: String, description: String, price: Int, location: Location?)  {
-        print("HELLO FROM FIREBASE METHOD")
         var imageURL:URL?
         var ref: DatabaseReference!
         ref = Database.database().reference()
@@ -103,8 +102,11 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
 
         
         let storageRef = Storage.storage().reference().child(key+".png")
-
-        if let uploadData = self.wishImageView.image!.pngData(){
+        
+        
+        if self.wishImageView.image !== nil {
+            
+            if let uploadData = self.wishImageView.image!.pngData(){
             storageRef.putData(uploadData, metadata: nil, completion: {(metadata, error)in
                 if error != nil {
                     print (error)
@@ -139,6 +141,23 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
                 })
             })
         }
+        
+        } else {
+            let dictionary: NSDictionary = [
+                "title" : title,
+                "description" : description,
+                "price" : price,
+                "location": locationDictionary
+            ]
+            reference.setValue(dictionary)
+            
+            WishManager.shared.myWishes.append(Wish(id: key, title: title, description: description, price: price, location: location, imageURL: nil))
+            
+        }
+        
+   
+        
+        
     }
     
     

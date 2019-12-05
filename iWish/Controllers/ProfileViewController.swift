@@ -11,17 +11,19 @@ import FacebookLogin
 import FacebookCore
 import Firebase
 
-class ProfileViewController: UIViewController {
+var followEmail: String?
+
+class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
     
+    @IBOutlet weak var followsTable: UITableView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var followerEmail: UITextField!
     
     
-    
     var ref: DatabaseReference!
-    
     
     
     override func viewDidLoad() {
@@ -35,6 +37,34 @@ class ProfileViewController: UIViewController {
         
         self.getUsers()
     }
+    
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return UserManager.shared.follows.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+        cell.textLabel?.text = UserManager.shared.follows[indexPath.row]
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedFriend = UserManager.shared.follows[indexPath.row]
+        followEmail = selectedFriend
+        
+        performSegue(withIdentifier: "friendProfile", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "friendProfile"){
+            var friendProfileViewController = segue.destination as! FriendProfileViewController
+            friendProfileViewController.friendEmail = followEmail
+        }
+    }
+    
     
     func getUsers () {
         ref.child("users").observeSingleEvent(of: .value){
@@ -113,6 +143,8 @@ class ProfileViewController: UIViewController {
                 
                 self.present(alert, animated: true)
                 UserManager.shared.follows.append(friendEmail!)
+                followsTable.reloadData()
+                followerEmail.text = ""
                 return
             }
             

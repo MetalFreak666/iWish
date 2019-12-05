@@ -84,6 +84,8 @@ class LoginViewController: UIViewController {
                     
 
                     self.setMyWishes()
+                    self.setFollows()
+                    self.setUserDetails()
                 }
             }
                 
@@ -91,17 +93,44 @@ class LoginViewController: UIViewController {
         }
     }
     
-
+    func setFollows () {
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        
+        ref.child("users/"+UserManager.shared.ID+"/follows").observeSingleEvent(of: .value){
+            (snapshot) in
+            let follows = snapshot.value as? [String: Any]
+            
+            if follows != nil {
+                for (key,value) in follows! {
+                    
+                    var follow = value as! NSString
+                    
+                    
+                    UserManager.shared.follows.append(follow as String)
+                    
+                    
+                    
+                }
+                
+            }
+            
+        }
+        redirectToTabBar()
+    }
+    
+    func setUserDetails () {
+        
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        ref.child("users/\(UserManager.shared.ID)/email").setValue(UserManager.shared.email)
+        ref.child("users/\(UserManager.shared.ID)/name").setValue(UserManager.shared.fullname)
+        
+    }
 
     func setMyWishes () {
         var ref: DatabaseReference!
         ref = Database.database().reference()
-        
-
-     
-        ref.child("users/\(UserManager.shared.ID)/email").setValue(UserManager.shared.email)
-
-        
         ref.child("users/"+UserManager.shared.ID+"/wishes").observeSingleEvent(of: .value){
             (snapshot) in
             let wishes = snapshot.value as? [String: Any]
