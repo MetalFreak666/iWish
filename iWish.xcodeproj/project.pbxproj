@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		002944CB2557B14AE0616724 /* Pods_iWish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AB1B761161B060DE9EC48B /* Pods_iWish.framework */; };
 		02E042F12397EAE60042D107 /* CellDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E042F02397EAE60042D107 /* CellDetailViewController.swift */; };
-		02ED0A7223759C07002284CD /* (null) in Sources */ = {isa = PBXBuildFile; };
-		02ED0A7423759C38002284CD /* (null) in Sources */ = {isa = PBXBuildFile; };
+		02ED0A7223759C07002284CD /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		02ED0A7423759C38002284CD /* BuildFile in Sources */ = {isa = PBXBuildFile; };
 		02ED0A762375A9F0002284CD /* AddWishController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ED0A752375A9EF002284CD /* AddWishController.swift */; };
 		02ED0A782375AA03002284CD /* Wish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ED0A772375AA03002284CD /* Wish.swift */; };
 		02ED0A7A2375B827002284CD /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ED0A792375B827002284CD /* Location.swift */; };
@@ -27,7 +28,6 @@
 		89A7F76B2370AFF700041762 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89A7F7692370AFF700041762 /* LaunchScreen.storyboard */; };
 		89BFBBC723758E310098B5FA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BFBBC623758E310098B5FA /* ProfileViewController.swift */; };
 		89C9125E2375A69300E02CEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89C9125D2375A69200E02CEE /* GoogleService-Info.plist */; };
-		EAE9703130169A9800962AD0 /* Pods_iWish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8DB4C6A47063576BEDE5E1D /* Pods_iWish.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,8 +35,8 @@
 		02ED0A752375A9EF002284CD /* AddWishController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWishController.swift; sourceTree = "<group>"; };
 		02ED0A772375AA03002284CD /* Wish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wish.swift; sourceTree = "<group>"; };
 		02ED0A792375B827002284CD /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
-		067F58146BBEFC37350E682B /* Pods-iWish.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iWish.release.xcconfig"; path = "Target Support Files/Pods-iWish/Pods-iWish.release.xcconfig"; sourceTree = "<group>"; };
-		15EC88E6CCF552E861E5B7E3 /* Pods-iWish.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iWish.debug.xcconfig"; path = "Target Support Files/Pods-iWish/Pods-iWish.debug.xcconfig"; sourceTree = "<group>"; };
+		2D3564BD711A96A88B77BB7B /* Pods-iWish.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iWish.release.xcconfig"; path = "Pods/Target Support Files/Pods-iWish/Pods-iWish.release.xcconfig"; sourceTree = "<group>"; };
+		38FB3346FABA24E71EC1259F /* Pods-iWish.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iWish.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iWish/Pods-iWish.debug.xcconfig"; sourceTree = "<group>"; };
 		5F57956D2385C87F00A5CCD5 /* WishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishTableViewCell.swift; sourceTree = "<group>"; };
 		5F8B0AAC23856890007B7220 /* WishManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishManager.swift; sourceTree = "<group>"; };
 		8915BC2823758FCF0035035C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -54,7 +54,7 @@
 		89A7F76C2370AFF800041762 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89BFBBC623758E310098B5FA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		89C9125D2375A69200E02CEE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
-		E8DB4C6A47063576BEDE5E1D /* Pods_iWish.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iWish.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0AB1B761161B060DE9EC48B /* Pods_iWish.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iWish.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,17 +62,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAE9703130169A9800962AD0 /* Pods_iWish.framework in Frameworks */,
+				002944CB2557B14AE0616724 /* Pods_iWish.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3DF780EE68822761F5054819 /* Frameworks */ = {
+		44FCAEBECE346E362123E186 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E8DB4C6A47063576BEDE5E1D /* Pods_iWish.framework */,
+				F0AB1B761161B060DE9EC48B /* Pods_iWish.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -80,10 +80,10 @@
 		51159A126913BD3F71903B79 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				15EC88E6CCF552E861E5B7E3 /* Pods-iWish.debug.xcconfig */,
-				067F58146BBEFC37350E682B /* Pods-iWish.release.xcconfig */,
+				38FB3346FABA24E71EC1259F /* Pods-iWish.debug.xcconfig */,
+				2D3564BD711A96A88B77BB7B /* Pods-iWish.release.xcconfig */,
 			);
-			path = Pods;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		89213DB9237598A500C98415 /* Controllers */ = {
@@ -126,7 +126,7 @@
 				89A7F75C2370AFF600041762 /* iWish */,
 				89A7F75B2370AFF600041762 /* Products */,
 				51159A126913BD3F71903B79 /* Pods */,
-				3DF780EE68822761F5054819 /* Frameworks */,
+				44FCAEBECE346E362123E186 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -162,11 +162,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 89A7F76F2370AFF800041762 /* Build configuration list for PBXNativeTarget "iWish" */;
 			buildPhases = (
-				9C24210DDEDB3183E2D699B2 /* [CP] Check Pods Manifest.lock */,
+				4C96EF4484F71F3876C71E4B /* [CP] Check Pods Manifest.lock */,
 				89A7F7562370AFF600041762 /* Sources */,
 				89A7F7572370AFF600041762 /* Frameworks */,
 				89A7F7582370AFF600041762 /* Resources */,
-				CE754A093174A71CBE30A2B6 /* [CP] Embed Pods Frameworks */,
+				1D545EECC8393BB16C7671C7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -230,7 +230,43 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		9C24210DDEDB3183E2D699B2 /* [CP] Check Pods Manifest.lock */ = {
+		1D545EECC8393BB16C7671C7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-iWish/Pods-iWish-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iWish/Pods-iWish-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4C96EF4484F71F3876C71E4B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -252,23 +288,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CE754A093174A71CBE30A2B6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-iWish/Pods-iWish-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-iWish/Pods-iWish-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iWish/Pods-iWish-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -279,9 +298,9 @@
 				02ED0A782375AA03002284CD /* Wish.swift in Sources */,
 				02ED0A7A2375B827002284CD /* Location.swift in Sources */,
 				89A1305B23913206007B0603 /* UserManager.swift in Sources */,
-				02ED0A7423759C38002284CD /* (null) in Sources */,
+				02ED0A7423759C38002284CD /* BuildFile in Sources */,
 				8915BC2B237590190035035C /* HomeViewController.swift in Sources */,
-				02ED0A7223759C07002284CD /* (null) in Sources */,
+				02ED0A7223759C07002284CD /* BuildFile in Sources */,
 				8915BC2923758FCF0035035C /* LoginViewController.swift in Sources */,
 				5F8B0AAD23856890007B7220 /* WishManager.swift in Sources */,
 				89A1305D239132AB007B0603 /* User.swift in Sources */,
@@ -437,7 +456,7 @@
 		};
 		89A7F7702370AFF800041762 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 15EC88E6CCF552E861E5B7E3 /* Pods-iWish.debug.xcconfig */;
+			baseConfigurationReference = 38FB3346FABA24E71EC1259F /* Pods-iWish.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = iWish/iWish.entitlements;
@@ -459,7 +478,7 @@
 		};
 		89A7F7712370AFF800041762 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 067F58146BBEFC37350E682B /* Pods-iWish.release.xcconfig */;
+			baseConfigurationReference = 2D3564BD711A96A88B77BB7B /* Pods-iWish.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = iWish/iWish.entitlements;

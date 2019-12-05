@@ -88,7 +88,7 @@ DEPENDENCIES:
   - Firebase/Storage
 
 SPEC REPOS:
-  trunk:
+  https://github.com/cocoapods/specs.git:
     - FacebookCore
     - FacebookLogin
     - FBSDKCoreKit
@@ -130,4 +130,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 8527175d55d2901c9ae1bf71ed1c143376fd90d2
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.5.3
