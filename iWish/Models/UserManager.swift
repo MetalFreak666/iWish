@@ -21,5 +21,8 @@ class UserManager {
     var email: String = ""
     var picture: String = ""
     
+    var follows: [String] = []
+    var allUserEmails: [String] = []
+
 
 }

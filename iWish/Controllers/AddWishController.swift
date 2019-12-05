@@ -93,6 +93,7 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
         var imageURL:URL?
         var ref: DatabaseReference!
         ref = Database.database().reference()
+    
         var reference = ref.child("users").child(UserManager.shared.ID).child("wishes").childByAutoId()
         var key = reference.key!
         let locationDictionary: NSDictionary = [
@@ -131,6 +132,7 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
                         reference.setValue(dictionary)
                         
                         WishManager.shared.myWishes.append(Wish(id: key, title: title, description: description, price: price, location: location, imageURL: imageURL))
+                        
                         
                     }
                     
@@ -173,15 +175,52 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
     
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        
         picker.dismiss(animated: true)
         let image = info[.originalImage] as! UIImage
-        wishImageView.image = image
+        
+
+        var newImg = resizeImage(image: image, targetSize: CGSize(width: 200, height: 200))
+        
+        wishImageView.image = newImg
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         print("Image picker was cancelled")
         picker.dismiss(animated: true)
     }
+    
+    
+    
+    
+    func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
+        let size = image.size
+        
+        let widthRatio  = targetSize.width  / size.width
+        let heightRatio = targetSize.height / size.height
+        
+        // Figure out what our orientation is, and use that to form the rectangle
+        var newSize: CGSize
+        if(widthRatio > heightRatio) {
+            newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
+        } else {
+            newSize = CGSize(width: size.width * widthRatio,  height: size.height * widthRatio)
+        }
+        
+        // This is the rect that we've calculated out and this is what is actually used below
+        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+        
+        // Actually do the resizing to the rect using the ImageContext stuff
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        image.draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage!
+    }
+    
+    
+    
     
     
     

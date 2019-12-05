@@ -9,21 +9,119 @@
 import UIKit
 import FacebookLogin
 import FacebookCore
+import Firebase
 
 class ProfileViewController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var followerEmail: UITextField!
+    
+    
+    
+    var ref: DatabaseReference!
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref = Database.database().reference()
+
         
         self.nameLabel.text = UserManager.shared.fullname
         self.emailLabel.text = UserManager.shared.email
         self.downloadImage(from: URL(string: UserManager.shared.picture)!)
+        
+        self.getUsers()
     }
+    
+    func getUsers () {
+        ref.child("users").observeSingleEvent(of: .value){
+            (snapshot) in
+            let users = snapshot.value as? [String: Any]
+            
+            if users != nil {
+                for (key,value) in users! {
+                    
+                    let dictionary = value as! NSDictionary
+                    
+                    
+                    let email = dictionary["email"] as! String
+                    
+                    UserManager.shared.allUserEmails.append(email)
+                }
+                
+            }
+        }
+    }
+    
+    func checkIfEmailExist () -> Bool {
+        var friendEmail = followerEmail.text
+
+        for email in UserManager.shared.allUserEmails {
+            if friendEmail == email {
+                return true
+            }
+        }
+        return false
+    }
+    
+    func checkIfAlreadyFollows () -> Bool {
+        var friendEmail = followerEmail.text
+        
+        for email in UserManager.shared.follows {
+            if friendEmail == email {
+                return true
+            }
+        }
+        return false
+
+    }
+    
+    @IBAction func follow(_ sender: UIButton) {
+        var friendEmail = followerEmail.text
+
+        
+        if (checkIfAlreadyFollows()==true){
+            let alert = UIAlertController(title: "Error", message: "You are already following this user.", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+            self.present(alert, animated: true)
+            return
+        }
+        
+        if (checkIfEmailExist()==false){
+            let alert = UIAlertController(title: "Error", message: "This user does not exist.", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+            self.present(alert, animated: true)
+            return
+        }
+        
+            if (checkIfEmailExist()==true && checkIfAlreadyFollows()==false) {
+                var reference = ref.child("users").child(UserManager.shared.ID).child("follows").childByAutoId()
+                var key = reference.key!
+                reference.setValue(friendEmail)
+                
+           
+                let alert = UIAlertController(title: "Success", message: "You are now following that person!", preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                
+                self.present(alert, animated: true)
+                UserManager.shared.follows.append(friendEmail!)
+                return
+            }
+            
+        }
+       
+       
+
+    
+    
     
     @IBAction func logOut(_ sender: UIButton) {
         

@@ -81,6 +81,8 @@ class LoginViewController: UIViewController {
                     UserManager.shared.lastName=dict["last_name"] as! String
                     UserManager.shared.picture = (((dict["picture"] as? [String: Any])?["data"] as? [String:Any])?["url"] as? String)!
                     UserManager.shared.email=dict["email"] as! String
+                    
+
                     self.setMyWishes()
                 }
             }
@@ -94,6 +96,11 @@ class LoginViewController: UIViewController {
     func setMyWishes () {
         var ref: DatabaseReference!
         ref = Database.database().reference()
+        
+
+     
+        ref.child("users/\(UserManager.shared.ID)/email").setValue(UserManager.shared.email)
+
         
         ref.child("users/"+UserManager.shared.ID+"/wishes").observeSingleEvent(of: .value){
             (snapshot) in
