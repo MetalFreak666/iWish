@@ -10,6 +10,13 @@ import UIKit
 import Firebase
 import FirebaseStorage
 
+var selectedWishTitle: String?
+var selectedWishDescription: String?
+var selectedWishPrice: String?
+var selectedWishImage: UIImage?
+var selectedWishLat: Double?
+var selectedWishLong: Double?
+
 class MyWishesViewController: UIViewController {
     
 
@@ -30,8 +37,8 @@ class MyWishesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         wishTableView.reloadData()
     }
+    
 }
-
 
 extension MyWishesViewController: UITableViewDataSource, UITableViewDelegate {
     
@@ -52,9 +59,42 @@ extension MyWishesViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewCell = storyboard?.instantiateViewController(withIdentifier: "CellDetailViewController") as? CellDetailViewController
-        self.navigationController?.pushViewController(viewCell!, animated: true)
+        let wishSelected = WishManager.shared.myWishes[indexPath.row]
+        selectedWishTitle = wishSelected.title
+        selectedWishDescription = wishSelected.description
+        selectedWishPrice = String(wishSelected.price)
+        selectedWishImage = wishSelected.image
+        selectedWishLat = wishSelected.location?.latitude
+        selectedWishLong = wishSelected.location?.longitude
+        
+        performSegue(withIdentifier: "showWishDetails", sender: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "showWishDetails") {
+            var detailedViewController = segue.destination as! CellDetailViewController
+            detailedViewController.wTitle = selectedWishTitle
+            detailedViewController.wDescription = selectedWishDescription
+            detailedViewController.wPrice = selectedWishPrice
+            detailedViewController.wImage = selectedWishImage
+            if(selectedWishLong != nil) {
+                detailedViewController.lat = selectedWishLat!
+                detailedViewController.long = selectedWishLong!
+            } else {
+                detailedViewController.lat = 0.0
+                detailedViewController.long = 0.0
+            }
+            
+            
+            
+            
+        }
+        
+    }
+    
+    
+    
+    
     
 }
 
