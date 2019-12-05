@@ -9,6 +9,7 @@ import UIKit
 import FacebookLogin
 import FacebookCore
 import Firebase
+import FirebaseStorage
 
 class LoginViewController: UIViewController {
     
@@ -89,6 +90,7 @@ class LoginViewController: UIViewController {
     }
     
 
+
     func setMyWishes () {
         var ref: DatabaseReference!
         ref = Database.database().reference()
@@ -104,18 +106,25 @@ class LoginViewController: UIViewController {
                     
                     
                     let title = dictionary["title"] as! String
-                    let description = dictionary["description"] as! String
+                    let description = dictionary["description"] as? String
                     let price = dictionary["price"] as! Int
                     let location = dictionary["location"] as? Location
+                    let imageURL = dictionary["imageURL"] as? URL
 
                     
-                    WishManager.shared.myWishes.append(Wish(id: key, title: title, wishDescription: description, price: price, location: location, Photo:nil))
+                    WishManager.shared.myWishes.append(Wish(id: key, title: title, description: description, price: price, location: location, imageURL: imageURL))
+                    
+   
                     
                 }
                 
             }
       
         }
+        
+       
+        
+        
         redirectToTabBar()
 
     }

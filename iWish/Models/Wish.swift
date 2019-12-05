@@ -8,13 +8,50 @@
 
 import Foundation
 import UIKit
+import FirebaseStorage
 
-struct Wish {
+
+class Wish {
     var id: String
     var title: String
-    var wishDescription: String
+    var description: String?
     var price: Int
     var location: Location?
-    var Photo: UIImage?
+    var imageURL: URL?
+    var image:UIImage?
+
+    
+    
+    init(id: String, title: String, description: String?, price: Int, location: Location?, imageURL: URL?) {
+        self.id = id
+        self.title = title
+        self.description = description
+        self.price = price
+        self.location = location
+        self.imageURL = imageURL
+        
+        setImage(key: id)
+    }
+    
+    func setImage (key: String) {
+        
+        let storageRef = Storage.storage().reference(withPath: key+".png")
+        
+        storageRef.getData(maxSize: 40*1024*1024, completion: { (data, error) in
+            if let error = error {
+                print("Got an error fetching data..")
+                print ( error.localizedDescription)
+                return
+            }
+            if let data = data {
+                
+                self.image = UIImage(data: data)
+                
+            }
+        })
+        
+    }
+    
     
 }
+

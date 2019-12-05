@@ -14,6 +14,8 @@ target 'iWish' do
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'Firebase/Auth'
+  pod 'Firebase/Storage'
+
 
 
 

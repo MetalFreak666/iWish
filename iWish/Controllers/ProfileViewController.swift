@@ -27,6 +27,7 @@ class ProfileViewController: UIViewController {
     
     @IBAction func logOut(_ sender: UIButton) {
         
+        WishManager.shared.myWishes.removeAll()
         let loginManager = LoginManager()
         loginManager.logOut()
         

@@ -13,6 +13,7 @@ class WishTableViewCell: UITableViewCell {
     @IBOutlet weak var wishTitleLabel: UILabel!
     @IBOutlet weak var wishDescriptionLabel: UILabel!
     @IBOutlet weak var wishPriceLabel: UILabel!
+    @IBOutlet weak var wishImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

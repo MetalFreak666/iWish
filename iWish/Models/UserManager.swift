@@ -15,15 +15,10 @@ class UserManager {
     private init() {}
 
     var ID: String = ""
-    
     var fullname: String = ""
-    
     var firstName: String = ""
-    
     var lastName: String = ""
-
     var email: String = ""
-
     var picture: String = ""
     
 

@@ -8,16 +8,10 @@
 
 import Foundation
 
-class User {
-    
+struct User {
     var name: String
     var email: String
     var picture: URL
     
-    init(name: String, email: String, picture: URL) {
-        self.email = email
-        self.name = name
-        self.picture = picture
-    }
-    
 }
+

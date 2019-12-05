@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 import Firebase
+import FirebaseStorage
 import MobileCoreServices
 
 class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -23,7 +24,7 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
     //TextFields title and description
     @IBOutlet weak var wishTitle: UITextField!
     @IBOutlet weak var wishDescription: UITextField!
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var wishImageView: UIImageView!
     @IBOutlet weak var wishPrice: UITextField!
     
     @IBOutlet weak var titleStar: UILabel!
@@ -59,13 +60,11 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
         } else if let input = wishPrice.text, input.isEmpty {
             self.priceStar.isHidden = false
         } else  {
-            
+            print("HELLO FROM HERE!")
             self.titleStar.isHidden = true
             self.priceStar.isHidden = true
             
-            let title: String = wishTitle.text!
-            let description: String = wishDescription.text!
-            let price = Int(wishPrice.text!)!
+  
             var userLocation:Location?
             
             if setLocationIsActive == true {
@@ -74,8 +73,9 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
                 userLocation = nil
             }
             
-            var key = self.addWishToDatabase(title: wishTitle.text!,description: wishDescription.text!,price: Int(wishPrice.text!)!, location: userLocation)
-            WishManager.shared.myWishes.append(Wish(id: key, title: title, wishDescription: description, price: price, location: userLocation, Photo: nil))
+            print("ABOUT TO ADD TO FIREBASE..")
+             addWishToDatabase(title: wishTitle.text!,description: wishDescription.text!,price: Int(wishPrice.text!)!, location: userLocation)
+            
             
             let alert = UIAlertController(title: "Wish added!!", message: "Your wish has successfully been added!!", preferredStyle: .alert)
             
@@ -88,29 +88,55 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
     
     
     
-    func addWishToDatabase (title: String, description: String, price: Int, location: Location?) -> String {
+    func addWishToDatabase (title: String, description: String, price: Int, location: Location?)  {
+        print("HELLO FROM FIREBASE METHOD")
+        var imageURL:URL?
         var ref: DatabaseReference!
         ref = Database.database().reference()
-        
+        var reference = ref.child("users").child(UserManager.shared.ID).child("wishes").childByAutoId()
+        var key = reference.key!
         let locationDictionary: NSDictionary = [
             "latitude": location?.latitude,
             "longitude": location?.longitude
         ]
-        
-        let dictionary: NSDictionary = [
-            "title" : title,
-            "description" : description,
-            "price" : price,
-            "location": locationDictionary
-        ]
-        
-        var reference = ref.child("users").child(UserManager.shared.ID).child("wishes").childByAutoId()
-        
-        reference.setValue(dictionary)
-        var key = reference.key!
 
         
-        return key
+        let storageRef = Storage.storage().reference().child(key+".png")
+
+        if let uploadData = self.wishImageView.image!.pngData(){
+            storageRef.putData(uploadData, metadata: nil, completion: {(metadata, error)in
+                if error != nil {
+                    print (error)
+                    return
+                }
+                print(metadata)
+                
+                storageRef.downloadURL(completion: {(url, error) in
+                    if error != nil {
+                        print("Failed to download url:", error!)
+                        return
+                    } else {
+                        imageURL = url
+                        print("HERE COMES THE URL:")
+                        print(url!)
+                        
+ 
+                        let dictionary: NSDictionary = [
+                            "title" : title,
+                            "description" : description,
+                            "price" : price,
+                            "location": locationDictionary,
+                            "imageURL": imageURL?.absoluteString
+                        ]
+                        reference.setValue(dictionary)
+                        
+                        WishManager.shared.myWishes.append(Wish(id: key, title: title, description: description, price: price, location: location, imageURL: imageURL))
+                        
+                    }
+                    
+                })
+            })
+        }
     }
     
     
@@ -149,10 +175,11 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         picker.dismiss(animated: true)
         let image = info[.originalImage] as! UIImage
-        imageView.image = image
+        wishImageView.image = image
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        print("Image picker was cancelled")
         picker.dismiss(animated: true)
     }
     

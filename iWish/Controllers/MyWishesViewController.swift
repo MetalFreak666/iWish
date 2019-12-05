@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class MyWishesViewController: UIViewController {
     
@@ -43,9 +44,10 @@ extension MyWishesViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WishTableViewCell") as! WishTableViewCell
         
         cell.wishTitleLabel.text = wish.title
-        cell.wishDescriptionLabel.text = wish.wishDescription
+        cell.wishDescriptionLabel.text = wish.description
         cell.wishPriceLabel.text = String(wish.price)
-        
+        cell.imageView?.image = wish.image
+      
         return cell
     }
     
@@ -53,7 +55,7 @@ extension MyWishesViewController: UITableViewDataSource, UITableViewDelegate {
         let viewCell = storyboard?.instantiateViewController(withIdentifier: "CellDetailViewController") as? CellDetailViewController
         self.navigationController?.pushViewController(viewCell!, animated: true)
     }
-
+    
 }
 
 

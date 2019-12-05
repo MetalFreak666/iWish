@@ -10,15 +10,10 @@ import Foundation
 
 class WishManager {
 
-    
     static let shared = WishManager()
     
     var myWishes: [Wish] = []
     
-    
     private init() {}
-    
-    
-    
-    
+
 }

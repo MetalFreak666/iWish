@@ -78,6 +78,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="wishDescriptionLabel" destination="JYB-jt-5ly" id="ZIy-Af-BcH"/>
+                                            <outlet property="wishImageView" destination="IhO-nh-hIY" id="eDx-FO-Azg"/>
                                             <outlet property="wishPriceLabel" destination="9yv-ZT-8Mn" id="v6m-Jp-RdU"/>
                                             <outlet property="wishTitleLabel" destination="44I-7k-bV8" id="E1F-Ot-PH8"/>
                                         </connections>
@@ -190,11 +191,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="imageView" destination="nUb-VE-squ" id="eqq-9m-KzL"/>
                         <outlet property="locationView" destination="qjd-ZS-tsC" id="XfK-Th-te2"/>
                         <outlet property="priceStar" destination="P2J-qT-dr2" id="zIk-62-cbj"/>
                         <outlet property="titleStar" destination="2Dj-8n-JCJ" id="B3p-DY-XHx"/>
                         <outlet property="wishDescription" destination="xgw-0X-R8d" id="Knm-Sf-LTV"/>
+                        <outlet property="wishImageView" destination="nUb-VE-squ" id="eqq-9m-KzL"/>
                         <outlet property="wishPrice" destination="etd-dC-UkO" id="Jnw-Za-z5V"/>
                         <outlet property="wishTitle" destination="vBW-zz-ytH" id="FH1-2E-crY"/>
                         <segue destination="eYC-YP-uye" kind="unwind" identifier="unwindToMyWishes" unwindAction="unwindToMyWishesWithSegue:" id="VkE-HB-H9B"/>
