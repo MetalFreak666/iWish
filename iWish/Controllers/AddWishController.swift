@@ -219,11 +219,6 @@ class AddWishController: UIViewController, UIImagePickerControllerDelegate, UINa
         return newImage!
     }
     
-    
-    
-    
-    
-    
     //Checking if location service is enabled on user device
     func checkIfLocationServiceIsAvailable() {
         if CLLocationManager.locationServicesEnabled() {
