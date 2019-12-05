@@ -8,6 +8,12 @@
 
 import UIKit
 import Firebase
+var selectedFriendWishTitle: String?
+var selectedFriendWishDescription: String?
+var selectedFriendWishPrice: String?
+var selectedFriendWishImage: UIImage?
+var selectedFriendWishLat: Double?
+var selectedFriendWishLong: Double?
 
 class FriendProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -45,6 +51,39 @@ class FriendProfileViewController: UIViewController, UITableViewDelegate, UITabl
         
         return cell
   
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedFriendWish = friendWishes[indexPath.row]
+        
+        selectedFriendWishTitle = selectedFriendWish.title
+        selectedFriendWishDescription = selectedFriendWish.description
+        selectedFriendWishPrice = String(selectedFriendWish.price)
+        selectedFriendWishImage = selectedFriendWish.image
+        selectedFriendWishLat = selectedFriendWish.location?.latitude
+        selectedFriendWishLong = selectedFriendWish.location?.longitude
+        
+        performSegue(withIdentifier: "showFriendWishDetails", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "showFriendWishDetails") {
+            var detailedViewController = segue.destination as! CellDetailViewController
+            
+            detailedViewController.wTitle = selectedFriendWishTitle
+            detailedViewController.wDescription = selectedFriendWishDescription
+            detailedViewController.wPrice = selectedFriendWishPrice
+            detailedViewController.wImage = selectedFriendWishImage
+            if(selectedWishLong != nil) {
+                detailedViewController.lat = selectedFriendWishLat!
+                detailedViewController.long = selectedFriendWishLong!
+            } else {
+                detailedViewController.lat = 0.0
+                detailedViewController.long = 0.0
+            }
+            
+        }
+        
     }
     
 

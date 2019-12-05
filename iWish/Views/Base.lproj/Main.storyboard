@@ -518,7 +518,6 @@
                         <outlet property="profileImage" destination="ko6-NC-6qS" id="o4w-WJ-iVP"/>
                         <outletCollection property="followsTable" destination="QeR-7X-G8H" collectionClass="NSMutableArray" id="Mh9-Gu-EKQ"/>
                         <segue destination="KTx-Dp-sWa" kind="show" identifier="friendProfile" id="CJr-yf-awD"/>
-                        <segue destination="JCA-LZ-8xp" kind="show" identifier="showFriendWishDetails" id="XRf-4n-b7S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LAe-jP-3tw" sceneMemberID="firstResponder"/>
@@ -604,6 +603,7 @@
                     <connections>
                         <outlet property="friendsNameLabel" destination="NOc-nz-zmq" id="YRL-O5-Tml"/>
                         <outlet property="friendsWishesTableView" destination="gnV-P3-l9n" id="bPx-Um-Tg4"/>
+                        <segue destination="JCA-LZ-8xp" kind="show" identifier="showFriendWishDetails" id="lQW-QT-oJ5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qM5-g5-3PT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -657,6 +657,6 @@
         <image name="User" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XRf-4n-b7S"/>
+        <segue reference="lQW-QT-oJ5"/>
     </inferredMetricsTieBreakers>
 </document>

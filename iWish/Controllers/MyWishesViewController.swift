@@ -84,17 +84,11 @@ extension MyWishesViewController: UITableViewDataSource, UITableViewDelegate {
                 detailedViewController.lat = 0.0
                 detailedViewController.long = 0.0
             }
-            
-            
-            
-            
+
         }
         
     }
-    
-    
-    
-    
+
     
 }
 
