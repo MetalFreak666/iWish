@@ -155,7 +155,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             reference.setValue(followEmail)
             
             
-            let alert = UIAlertController(title: "Success", message: "You are now following that person!", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Success", message: "You are now following "+followEmail!+"!", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             

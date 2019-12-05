@@ -424,7 +424,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8i-tS-Bv0">
-                                <rect key="frame" x="62" y="187" width="245" height="66"/>
+                                <rect key="frame" x="62" y="214" width="245" height="13.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <nil key="textColor"/>
@@ -444,9 +444,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ko6-NC-6qS">
+                            <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ko6-NC-6qS">
                                 <rect key="frame" x="117" y="57" width="140" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="S5i-S4-wce"/>
+                                </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQm-vc-JOe">
                                 <rect key="frame" x="310" y="39" width="52" height="30"/>
@@ -472,15 +474,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Following" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KBX-Wc-Uhl">
-                                <rect key="frame" x="149" y="336" width="65" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QeR-7X-G8H">
-                                <rect key="frame" x="67" y="383" width="240" height="128"/>
+                                <rect key="frame" x="67" y="330.5" width="240" height="180.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -489,17 +484,34 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khM-PD-TZS">
-                                <rect key="frame" x="298" y="261" width="44" height="30"/>
+                                <rect key="frame" x="321" y="264" width="30" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Follow">
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
+                                <state key="normal" title="+">
                                     <color key="titleColor" red="0.2666707337" green="0.26665931939999998" blue="0.26666706800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="followHandler:" destination="K7f-c1-1Uk" eventType="touchUpInside" id="jkK-hb-QWb"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Line" translatesAutoresizingMaskIntoConstraints="NO" id="HTk-2u-vVL">
+                                <rect key="frame" x="16" y="243" width="343" height="12"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Following" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KBX-Wc-Uhl">
+                                <rect key="frame" x="146" y="269" width="77" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ko6-NC-6qS" firstAttribute="top" secondItem="HYr-Vd-O0h" secondAttribute="top" constant="37" id="7mo-hc-JK9"/>
+                            <constraint firstItem="ko6-NC-6qS" firstAttribute="leading" secondItem="HYr-Vd-O0h" secondAttribute="leading" constant="117" id="LEb-Ud-y0Z"/>
+                            <constraint firstItem="ko6-NC-6qS" firstAttribute="centerX" secondItem="7gq-7z-3q4" secondAttribute="centerX" id="QJ3-1V-UIw"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="HYr-Vd-O0h"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="User" id="fY7-9S-vFF"/>
@@ -645,6 +657,7 @@
     <resources>
         <image name="Gift" width="25" height="25"/>
         <image name="Home" width="30" height="30"/>
+        <image name="Line" width="596" height="9"/>
         <image name="LoginButton" width="662" height="144"/>
         <image name="User" width="25" height="25"/>
     </resources>
