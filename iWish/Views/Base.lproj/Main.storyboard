@@ -23,7 +23,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WishTableViewCell" rowHeight="90" id="qDO-ce-PCY" customClass="WishTableViewCell" customModule="iWish" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WishTableViewCell" rowHeight="90" id="qDO-ce-PCY" customClass="WishTableViewCell" customModule="iWish" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qDO-ce-PCY" id="5cg-Hd-SJM">
@@ -37,7 +37,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44I-7k-bV8">
-                                                    <rect key="frame" x="149" y="11" width="247" height="21"/>
+                                                    <rect key="frame" x="149" y="11" width="22" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="T3J-Pc-3vB"/>
                                                     </constraints>
@@ -488,13 +488,6 @@
                                     <outlet property="delegate" destination="K7f-c1-1Uk" id="xzu-uG-nFs"/>
                                 </connections>
                             </tableView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aCp-yq-fOo">
-                                <rect key="frame" x="79" y="262" width="204" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khM-PD-TZS">
                                 <rect key="frame" x="298" y="261" width="44" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -502,7 +495,7 @@
                                     <color key="titleColor" red="0.2666707337" green="0.26665931939999998" blue="0.26666706800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <action selector="follow:" destination="K7f-c1-1Uk" eventType="touchUpInside" id="jkK-hb-QWb"/>
+                                    <action selector="followHandler:" destination="K7f-c1-1Uk" eventType="touchUpInside" id="jkK-hb-QWb"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -512,7 +505,6 @@
                     <tabBarItem key="tabBarItem" title="Profile" image="User" id="fY7-9S-vFF"/>
                     <connections>
                         <outlet property="emailLabel" destination="t8i-tS-Bv0" id="Jhm-Uc-BCw"/>
-                        <outlet property="followerEmail" destination="aCp-yq-fOo" id="Yyn-uo-6S5"/>
                         <outlet property="followsTable" destination="QeR-7X-G8H" id="87S-MV-A3v"/>
                         <outlet property="nameLabel" destination="rq1-6E-YAS" id="YVL-su-Wg5"/>
                         <outlet property="profileImage" destination="ko6-NC-6qS" id="o4w-WJ-iVP"/>
@@ -536,7 +528,7 @@
                                 <rect key="frame" x="23" y="126" width="336" height="508"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="friendsWishCell" rowHeight="88" id="syA-Ig-oKJ" customClass="FriendWishTableViewCell" customModule="iWish" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="friendsWishCell" rowHeight="88" id="syA-Ig-oKJ" customClass="FriendWishTableViewCell" customModule="iWish" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="336" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="syA-Ig-oKJ" id="Ru4-v1-VdY">

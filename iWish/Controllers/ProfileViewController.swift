@@ -20,7 +20,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var followerEmail: UITextField!
     
     
     var ref: DatabaseReference!
@@ -87,10 +86,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func checkIfEmailExist () -> Bool {
-        let friendEmail = followerEmail.text
-
-        for email in UserManager.shared.allUserEmails {
-            if friendEmail == email {
+         for email in UserManager.shared.allUserEmails {
+            if followEmail == email {
                 return true
             }
         }
@@ -98,10 +95,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func checkIfAlreadyFollows () -> Bool {
-        let friendEmail = followerEmail.text
-        
         for email in UserManager.shared.follows {
-            if friendEmail == email {
+            if followEmail == email {
                 return true
             }
         }
@@ -109,9 +104,32 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     }
     
-    @IBAction func follow(_ sender: UIButton) {
-        let friendEmail = followerEmail.text
-
+    @IBAction func followHandler(_ sender: UIButton) {
+        
+        let alert = UIAlertController(title: "Follow", message: "Please input the email", preferredStyle: UIAlertController.Style.alert)
+        
+        let action = UIAlertAction(title: "Follow", style: .default) { (alertAction) in
+            let textField = alert.textFields![0] as UITextField
+            followEmail = textField.text!
+            self.follow()
+        }
+        
+        alert.addTextField { (textField) in
+            textField.placeholder = "Enter your name"
+        }
+        
+        alert.addAction(action)
+        present(alert, animated: true)
+        
+        
+        
+        
+            
+        }
+    
+    func follow () {
+        
+        
         
         if (checkIfAlreadyFollows()==true){
             let alert = UIAlertController(title: "Error", message: "You are already following this user.", preferredStyle: .alert)
@@ -131,25 +149,23 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             return
         }
         
-            if (checkIfEmailExist()==true && checkIfAlreadyFollows()==false) {
-                var reference = ref.child("users").child(UserManager.shared.ID).child("follows").childByAutoId()
-                var key = reference.key!
-                reference.setValue(friendEmail)
-                
-           
-                let alert = UIAlertController(title: "Success", message: "You are now following that person!", preferredStyle: .alert)
-                
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                
-                self.present(alert, animated: true)
-                UserManager.shared.follows.append(friendEmail!)
-                followsTable.reloadData()
-                followerEmail.text = ""
-                return
-            }
+        if (checkIfEmailExist()==true && checkIfAlreadyFollows()==false) {
+            var reference = ref.child("users").child(UserManager.shared.ID).child("follows").childByAutoId()
+            var key = reference.key!
+            reference.setValue(followEmail)
             
+            
+            let alert = UIAlertController(title: "Success", message: "You are now following that person!", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+            self.present(alert, animated: true)
+            UserManager.shared.follows.append(followEmail!)
+            followsTable.reloadData()
+            return
         }
-       
+    
+    }
     
     @IBAction func logOut(_ sender: UIButton) {
         
