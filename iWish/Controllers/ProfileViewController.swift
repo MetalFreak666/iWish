@@ -57,7 +57,7 @@ class ProfileViewController: UIViewController {
     }
     
     func checkIfEmailExist () -> Bool {
-        var friendEmail = followerEmail.text
+        let friendEmail = followerEmail.text
 
         for email in UserManager.shared.allUserEmails {
             if friendEmail == email {
@@ -68,7 +68,7 @@ class ProfileViewController: UIViewController {
     }
     
     func checkIfAlreadyFollows () -> Bool {
-        var friendEmail = followerEmail.text
+        let friendEmail = followerEmail.text
         
         for email in UserManager.shared.follows {
             if friendEmail == email {
@@ -80,7 +80,7 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func follow(_ sender: UIButton) {
-        var friendEmail = followerEmail.text
+        let friendEmail = followerEmail.text
 
         
         if (checkIfAlreadyFollows()==true){
@@ -118,10 +118,6 @@ class ProfileViewController: UIViewController {
             
         }
        
-       
-
-    
-    
     
     @IBAction func logOut(_ sender: UIButton) {
         
