@@ -45,7 +45,7 @@ extension MyWishesViewController: UITableViewDataSource, UITableViewDelegate {
         
         cell.wishTitleLabel.text = wish.title
         cell.wishDescriptionLabel.text = wish.description
-        cell.wishPriceLabel.text = String(wish.price)
+        cell.wishPriceLabel.text = String(wish.price) + " kr"
         cell.imageView?.image = wish.image
       
         return cell
