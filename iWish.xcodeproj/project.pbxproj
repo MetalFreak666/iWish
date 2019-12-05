@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		002944CB2557B14AE0616724 /* Pods_iWish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AB1B761161B060DE9EC48B /* Pods_iWish.framework */; };
+		022D463923999B6700662608 /* FriendWishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D463823999B6700662608 /* FriendWishTableViewCell.swift */; };
 		02E042F12397EAE60042D107 /* CellDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E042F02397EAE60042D107 /* CellDetailViewController.swift */; };
 		02ED0A7223759C07002284CD /* (null) in Sources */ = {isa = PBXBuildFile; };
 		02ED0A7423759C38002284CD /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		022D463823999B6700662608 /* FriendWishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendWishTableViewCell.swift; sourceTree = "<group>"; };
 		02E042F02397EAE60042D107 /* CellDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellDetailViewController.swift; sourceTree = "<group>"; };
 		02ED0A752375A9EF002284CD /* AddWishController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWishController.swift; sourceTree = "<group>"; };
 		02ED0A772375AA03002284CD /* Wish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wish.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				5F57956D2385C87F00A5CCD5 /* WishTableViewCell.swift */,
 				02E042F02397EAE60042D107 /* CellDetailViewController.swift */,
 				89A9D48A23997D7900559903 /* FriendProfileViewController.swift */,
+				022D463823999B6700662608 /* FriendWishTableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				89A1305B23913206007B0603 /* UserManager.swift in Sources */,
 				02ED0A7423759C38002284CD /* (null) in Sources */,
 				8915BC2B237590190035035C /* HomeViewController.swift in Sources */,
+				022D463923999B6700662608 /* FriendWishTableViewCell.swift in Sources */,
 				02ED0A7223759C07002284CD /* (null) in Sources */,
 				8915BC2923758FCF0035035C /* LoginViewController.swift in Sources */,
 				5F8B0AAD23856890007B7220 /* WishManager.swift in Sources */,

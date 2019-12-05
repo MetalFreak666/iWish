@@ -35,9 +35,16 @@ class FriendProfileViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "friendsWishCell")
-        cell.textLabel!.text = friendWishes[indexPath.row].title
+        let friendWish = friendWishes[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "friendsWishCell") as! FriendWishTableViewCell
+        
+        cell.friendWishTitle.text = friendWish.title
+        cell.friendWishDescription.text = friendWish.description
+        cell.friendWishPrice.text = String(friendWish.price)
+        cell.friendWishImage?.image = friendWish.image
+        
         return cell
+  
     }
     
 
