@@ -18,7 +18,11 @@ var selectedFriendWishLong: Double?
 class FriendProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-
+    
+    
+    @IBAction func back(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
     @IBOutlet weak var friendsNameLabel: UILabel!
     @IBOutlet weak var friendsWishesTableView: UITableView!
     var friendEmail: String?
@@ -28,11 +32,22 @@ class FriendProfileViewController: UIViewController, UITableViewDelegate, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        scheduledTimerWithTimeInterval()
+    }
+    
+    func scheduledTimerWithTimeInterval(){
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { timer in
+            
+            self.friendsWishesTableView.reloadData()
+        }
+    }
+
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
         getFriendInfo ()
-        print("THIS IS THE FRIENDS EMAIL:")
-        print(friendEmail)
-        // Do any additional setup after loading the view.
+
     }
     
     
@@ -46,7 +61,7 @@ class FriendProfileViewController: UIViewController, UITableViewDelegate, UITabl
         
         cell.friendWishTitle.text = friendWish.title
         cell.friendWishDescription.text = friendWish.description
-        cell.friendWishPrice.text = String(friendWish.price)
+        cell.friendWishPrice.text = String(friendWish.price)+" kr"
         cell.friendWishImage?.image = friendWish.image
         
         return cell
@@ -74,12 +89,13 @@ class FriendProfileViewController: UIViewController, UITableViewDelegate, UITabl
             detailedViewController.wDescription = selectedFriendWishDescription
             detailedViewController.wPrice = selectedFriendWishPrice
             detailedViewController.wImage = selectedFriendWishImage
+            
             if(selectedWishLong != nil) {
                 detailedViewController.lat = selectedFriendWishLat!
                 detailedViewController.long = selectedFriendWishLong!
             } else {
-                detailedViewController.lat = 0.0
-                detailedViewController.long = 0.0
+                detailedViewController.lat = 55.36660382646953
+                detailedViewController.long = 10.429318644646193
             }
             
         }
@@ -104,14 +120,9 @@ class FriendProfileViewController: UIViewController, UITableViewDelegate, UITabl
                         
                         if(email == self.friendEmail) {
                             self.friendsNameLabel.text = name! + "'s wishes"
-                            print("GETTING WISHES BY:")
-                            print(name)
-                            print("KEY")
-                            print(key)
                             self.getFriendWishes(id: key)
                             
                         }
-                     //   WishManager.shared.myWishes.append(Wish(id: key, title: title, description: description, price: price, location: location, imageURL: imageURL))
                     }
                     
                 }
@@ -119,6 +130,11 @@ class FriendProfileViewController: UIViewController, UITableViewDelegate, UITabl
             }
     }
     
+    @IBAction func reloadTable(_ sender: UIButton) {
+        print("RELOADING!")
+        friendsWishesTableView.reloadData()
+    }
+ 
     func getFriendWishes (id: String) {
         var ref: DatabaseReference!
         ref = Database.database().reference()
@@ -135,12 +151,12 @@ class FriendProfileViewController: UIViewController, UITableViewDelegate, UITabl
                     let title = dictionary["title"] as! String
                     let description = dictionary["description"] as? String
                     let price = dictionary["price"] as! Int
+                    
                     let location = dictionary["location"] as? Location
                     let imageURL = dictionary["imageURL"] as? URL
                     
                     self.friendWishes.append(Wish(id: key, title: title, description: description, price: price, location: location, imageURL: imageURL))
                     self.friendsWishesTableView.reloadData()
-
                     
                 }
                 

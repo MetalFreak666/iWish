@@ -22,18 +22,21 @@ class CellDetailViewController: UIViewController  {
     var wDescription: String?
     var wPrice: String?
     var wImage: UIImage?
-    var lat: Double = 0.0
-    var long: Double = 0.0
+    var lat: Double = 55.36660382646953
+    var long: Double = 10.429318644646193
     
     override func viewDidLoad() {
         super.viewDidLoad()
         wishTitle.text = wTitle
         wishDescription.text = wDescription
-        wishPrice.text = wPrice
+        wishPrice.text = wPrice! + " kr"
         wishImage.image = wImage
         //Setting initial location to user wish
         let wishLocation = CLLocation(latitude: lat, longitude: long)
         centerMapOnLocation(location: wishLocation)
+    }
+    @IBAction func back(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {

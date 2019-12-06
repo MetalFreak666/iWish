@@ -81,8 +81,8 @@ extension MyWishesViewController: UITableViewDataSource, UITableViewDelegate {
                 detailedViewController.lat = selectedWishLat!
                 detailedViewController.long = selectedWishLong!
             } else {
-                detailedViewController.lat = 0.0
-                detailedViewController.long = 0.0
+                detailedViewController.lat = 55.36660382646953
+                detailedViewController.long = 10.429318644646193
             }
 
         }

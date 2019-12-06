@@ -17,7 +17,6 @@ class FriendWishTableViewCell: UITableViewCell {
     @IBOutlet weak var friendWishPrice: UILabel!
     
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
